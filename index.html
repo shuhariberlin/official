@@ -112,7 +112,7 @@
             align-items: center;
         }
         
-        /* Hero Section */
+        /* Hero Section with Animation */
         .hero {
             height: 100vh;
             display: flex;
@@ -136,6 +136,18 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            opacity: 0; /* Start with content invisible */
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1s; /* 1 second delay */
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         
         .hero-title {
@@ -605,7 +617,7 @@
             box-shadow: 0 10px 25px rgba(255, 51, 102, 0.5);
         }
         
-        /* Responsive */
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 4rem;
@@ -916,6 +928,3 @@
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#program">Program</a>
-                <a href="#exhibition">Exhibition</a>
-                <a href="#participate">Participate</a>
-                <a href="#location">Location</a>
