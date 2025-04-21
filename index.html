@@ -261,6 +261,9 @@
         
         .about-img img {
             width: 100%;
+            height: 825px;
+            width: 827px;
+            object-fit: cover;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
@@ -300,7 +303,8 @@
         }
         
         .program-img {
-            height: 200px;
+            height: 540px;
+            width: 675px;
             background-color: var(--primary);
             position: relative;
             overflow: hidden;
@@ -366,7 +370,8 @@
         }
         
         .gallery-item {
-            height: 250px;
+            height: 540px;
+            width: 675px;
             background-color: var(--secondary);
             overflow: hidden;
             position: relative;
@@ -659,6 +664,16 @@
                 margin-top: 15px;
                 margin-left: 0;
             }
+            
+            .program-img, .gallery-item {
+                height: auto;
+                width: 100%;
+            }
+            
+            .about-img img {
+                height: auto;
+                width: 100%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -735,7 +750,7 @@
                 </div>
                 <div class="about-img">
                     <span class="kanji">守破離</span>
-                    <img src="images/about.jpg" alt="Shuhari Festival Atmosphere">
+                    <img src="images/logo.jpg" alt="Shuhari Festival Logo">
                 </div>
             </div>
         </div>
@@ -820,33 +835,21 @@
                 </div>
                 <div class="exhibition-gallery">
                     <div class="gallery-item">
-                        <img src="images/gallery1.jpg" alt="Exhibition Piece 1">
-                        <div class="gallery-item-overlay">
-                            <span class="gallery-item-title">Takibi Tales</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/gallery2.jpg" alt="Exhibition Piece 2">
+                        <img src="images/ICHIJU-SANSAI.png" alt="Exhibition Piece 1">
                         <div class="gallery-item-overlay">
                             <span class="gallery-item-title">ICHIJU-SANSAI</span>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/gallery3.jpg" alt="Exhibition Piece 3">
+                        <img src="images/Köyri.png" alt="Exhibition Piece 2">
                         <div class="gallery-item-overlay">
                             <span class="gallery-item-title">Köyri / 實り</span>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/gallery4.jpg" alt="Exhibition Piece 4">
+                        <img src="images/DULLSTONE.png" alt="Exhibition Piece 3">
                         <div class="gallery-item-overlay">
                             <span class="gallery-item-title">DULLSTONE・鈍石・EIN STEIN</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/gallery5.jpg" alt="Exhibition Piece 5">
-                        <div class="gallery-item-overlay">
-                            <span class="gallery-item-title">And more …</span>
                         </div>
                     </div>
                 </div>
@@ -900,4 +903,19 @@
                 <div class="social-links">
                     <a href="#" class="social-link">IG</a>
                     <a href="#" class="social-link">FB</a>
-                    <a href="#" class="
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">SHUHARI</div>
+            <p class="footer-text">© 2025 SHUHARI Berlin Festival. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#program">Program</a>
+                <a href="#exhibition">Exhibition</a>
+                <a href="#participate">Participate</a>
+                <a href="#location">Location</a>
