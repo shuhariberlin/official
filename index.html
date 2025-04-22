@@ -1,424 +1,894 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHUHARI Berlin Festival 2025</title>
-
-  <!-- Styles -->
-  <style>
-    :root {
-      --primary: #ff3366;
-      --secondary: #9933cc;
-      --text: #000;
-      --text-light: #fff;
-      --bg-overlay: rgba(255, 255, 255, 0.8);
-      --transition: 0.3s ease;
-    }
-
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo { font-size: 1.8rem; font-weight: 700; }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color var(--transition);
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .social-links { display: flex; gap: 1rem; }
-    .social-links a { font-size: 1.2rem; transition: color var(--transition); }
-    .social-links a:hover { color: var(--primary); }
-    .mobile-menu { display: none; cursor: pointer; }
-
-    /* Hero */
-    .hero {
-      height: 100vh;
-      padding-top: 60px;
-      background: url('images/hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-    }
-    .hero-content {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 2rem;
-      border-radius: 8px;
-      animation: fadeIn 1s ease-in 1s forwards;
-      opacity: 0;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-    .hero-title {
-      font-size: 4rem;
-      font-weight: 900;
-      color: var(--text-light);
-      margin-bottom: 1rem;
-    }
-    .hero-subtitle,
-    .hero-date,
-    .hero-entry,
-    .hero-location {
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-    .hero-date { font-size: 1.5rem; font-weight: 700; }
-    .hero-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--text-light);
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .hero-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Sections */
-    section {
-      padding: 6rem 0;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      width: 60px;
-      height: 3px;
-      background: var(--text);
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-    }
-    .content {
-      background: var(--bg-overlay);
-      padding: 2rem;
-      border-radius: 4px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-    .kanji-bg {
-      position: absolute;
-      top: -1rem;
-      right: -1rem;
-      font-size: 8rem;
-      color: var(--secondary);
-      opacity: 0.1;
-      z-index: -1;
-    }
-
-    /* Program */
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--bg-overlay);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    .card img { width: 100%; height: auto; display: block; }
-    .card-content {
-      padding: 1rem;
-    }
-    .card-time {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #666;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Exhibition */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-    }
-    .gallery-item img {
-      transition: transform var(--transition);
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .gallery-item:hover img { transform: scale(1.1); }
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      color: var(--text-light);
-      padding: 0.75rem;
-      font-weight: 700;
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-    /* Participate */
-    .participate-content { text-align: center; }
-    .participate-btn { margin-top: 1rem; }
-
-    /* Location */
-    .location-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .location-info {
-      flex: 1 1 300px;
-    }
-    .location-info ul { margin: 1rem 0; }
-    .location-info li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-    .map-container {
-      flex: 1 1 300px;
-      height: 300px;
-      position: relative;
-    }
-    #static-map,
-    #jdzb-map {
-      width: 100%;
-      height: 100%;
-      border-radius: 4px;
-    }
-
-    /* Floating Register Button */
-    .fixed-register {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 2000;
-    }
-    .fixed-register-btn {
-      background: var(--primary);
-      color: var(--text-light);
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .fixed-register-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .about-grid,
-      .location-flex { flex-direction: column; }
-      .hero-title { font-size: 2.5rem; }
-    }
-    @media (max-width: 480px) {
-      .hero-content { padding: 1rem; }
-      .hero-title { font-size: 2rem; }
-      .section-title { font-size: 2rem; }
-      .map-container { height: 200px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUHARI Berlin Festival 2025</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #ff3366;
+            --secondary: #9933cc;
+            --tertiary: #33cc99;
+            --text: #000000;
+            --text-light: #ffffff;
+            --background: #ffffff;
+            --bg-overlay: rgba(255, 255, 255, 0.8);
+            --transition: 0.3s ease;
+        }
+        
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .social-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 20px;
+        }
+        
+        .social-header a {
+            color: #000;
+            font-size: 1.2rem;
+            transition: color var(--transition);
+        }
+        
+        .social-header a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Hero with Animation - Updated from paste.txt */
+        .hero {
+            height: 100vh;
+            padding-top: 60px;
+            background: url('images/hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 8px;
+            animation: fadeIn 1s ease-in 1s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle,
+        .hero-date,
+        .hero-entry,
+        .hero-location {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-date { font-size: 1.5rem; font-weight: 700; }
+        
+        .hero-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: left;
+            position: relative;
+            color: var(--text);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #000;
+            margin: 15px 0 0;
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 825px;
+            width: 827px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .kanji {
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            color: var(--secondary);
+            z-index: -1;
+            right: -50px;
+            top: -30px;
+        }
+        
+        /* Program Section */
+        .program {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .program-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 0;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-img {
+            height: 540px;
+            width: 675px;
+            background-color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #000;
+            font-weight: 700;
+        }
+        
+        .program-content p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .program-time {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 700;
+        }
+        
+        /* Exhibition Section */
+        .exhibition {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .exhibition-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .exhibition-text {
+            max-width: 800px;
+            text-align: left;
+            margin-bottom: 60px;
+        }
+        
+        .exhibition-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .exhibition-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .gallery-item {
+            height: 400px;
+            width: 320px;
+            background-color: var(--secondary);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item-title {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        /* Participate Section */
+        .participate {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .participate-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .participate-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Location Section */
+        .location {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .location-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .location-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 700;
+        }
+        
+        .location-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .location-info ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .location-info li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .location-info li i {
+            color: #000;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .location-map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .contact-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .contact-email {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 40px;
+            display: block;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #000;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-credit {
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+        
+        /* Fixed Register Button */
+        .fixed-register {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+        
+        .fixed-register-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .fixed-register-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.5);
+        }
+        
+        .fixed-register-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .about-content, .location-content {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text, .location-info {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .exhibition-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .fixed-register {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .fixed-register-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-right {
+                order: 3;
+                width: 100%;
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+            
+            .nav-right.show {
+                display: flex;
+            }
+            
+            .social-header {
+                margin-top: 15px;
+                margin-left: 0;
+            }
+            
+            .program-img, .gallery-item {
+                height: auto;
+                width: 100%;
+            }
+            
+            .about-img img {
+                height: auto;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .exhibition-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-email {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="container nav-inner">
-      <a href="#" class="logo">SHUHARI</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#program">Program</a></li>
-        <li><a href="#exhibition">Exhibition</a></li>
-        <li><a href="#participate">Participate</a></li>
-        <li><a href="#location">Location</a></li>
-      </ul>
-      <div class="social-links">
-        <a href="https://www.instagram.com/shuhari" target="_blank">IG</a>
-        <a href="https://www.facebook.com/shuhari" target="_blank">FB</a>
-      </div>
-      <div class="mobile-menu">≡</div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1 class="hero-title">SHU HA RI</h1>
-      <p class="hero-subtitle">Forget Boundaries, Where Creation Converges.</p>
-      <p class="hero-date">10:00–19:00 | 24.05.2025</p>
-      <p class="hero-entry">Free Entry (Donation-based)</p>
-      <p class="hero-location">JDZB Japanisch-Deutsches Zentrum, Saargemünder Str. 2, 14195 Berlin</p>
-      <a href="https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/" target="_blank" class="hero-btn">Register Now</a>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">What is Shuhari?</h2>
-      <div class="content about-grid">
-        <div>
-          <h3>An Explosive Day Full of Expression and Dialogue</h3>
-          <p>Shuhari is a borderless festival where expressions, research, and inquiries converge...</p>
-          <span class="kanji-bg">守破離</span>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">SHUHARI</a>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#exhibition">Exhibition</a></li>
+                        <li><a href="#participate">Participate</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/" target="_blank">Register</a></li>
+                    </ul>
+                    <div class="social-header">
+                        <a href="https://www.instagram.com/shuhari" target="_blank">IG</a>
+                        <a href="https://www.facebook.com/shuhari" target="_blank">FB</a>
+                    </div>
+                </div>
+                <div class="mobile-menu">≡</div>
+            </div>
         </div>
-        <div><img src="images/logo.jpg" alt="Shuhari Festival Logo" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Program -->
-  <section id="program">
-    <div class="container">
-      <h2 class="section-title">Program</h2>
-      <div class="program-grid">
-        <!-- Repeat .card blocks for each program item -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Exhibition -->
-  <section id="exhibition">
-    <div class="container">
-      <h2 class="section-title">Exhibition</h2>
-      <div class="gallery">
-        <!-- Repeat .gallery-item for each piece -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Participate -->
-  <section id="participate">
-    <div class="container participate-content">
-      <h2 class="section-title">How to Participate</h2>
-      <p>Entry is free and donation-based. Register to secure your spot and receive updates.</p>
-      <a href="https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/" target="_blank" class="hero-btn participate-btn">Register Now</a>
-    </div>
-  </section>
-
-  <!-- Location -->
-  <section id="location">
-    <div class="container">
-      <h2 class="section-title">Location</h2>
-      <div class="content location-flex">
-        <div class="location-info">
-          <h3>JDZB</h3>
-          <p>Japanisch-Deutsches Zentrum Berlin</p>
-          <ul>
-            <li>📍 Saargemünder Str. 2, 14195 Berlin</li>
-            <li>🕙 May 24, 2025 | 10:00–19:00</li>
-            <li>💰 Free Entry (Donation-based)</li>
-          </ul>
-          <p>A bilateral institution promoting cultural exchange between Japan and Germany.</p>
+    </nav>
+    
+    <!-- Hero with Updated Animation -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">SHU HA RI</h1>
+            <p class="hero-subtitle">Forget Boundaries, Where Creation Converges.</p>
+            <p class="hero-date">10:00–19:00 | 24.05.2025</p>
+            <p class="hero-entry">Free Entry (Donation-based)</p>
+            <p class="hero-location">JDZB Japanisch-Deutsches Zentrum, Saargemünder Str. 2, 14195 Berlin</p>
+            <a href="https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/" target="_blank" class="hero-btn">Register Now</a>
         </div>
-        <div class="map-container" id="location">
-          <img id="static-map"
-            src="https://maps.googleapis.com/maps/api/staticmap?center=52.4475939,13.3012097&amp;zoom=15&amp;size=600x300&amp;key=YOUR_API_KEY"
-            alt="Static map of JDZB" />
-          <div id="jdzb-map"></div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">What is Shuhari?</h2>
+            <div class="about-content content">
+                <div class="about-text">
+                    <h3>An Explosive Day Full of Expression and Dialogue</h3>
+                    <p>Shuhari is a borderless festival where expressions, research, and inquiries are brought together, sparking unexpected encounters and possibilities for new creations.</p>
+                    <p>The concept of "Shu-Ha-Ri" represents the journey of learning and mastery: "Shu" (obey) - learn the fundamentals, "Ha" (break) - detach from traditional forms, and "Ri" (separate) - transcend to create your own path.</p>
+                    <p>Join us for a day where creators, researchers, and enthusiasts from diverse backgrounds come together to share ideas, challenge conventions, and find their unique creative voice.</p>
+                </div>
+                <div class="about-img">
+                    <span class="kanji">守破離</span>
+                    <img src="images/logo.jpg" alt="Shuhari Festival Logo">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    
+    <!-- Program Section -->
+    <section id="program" class="program">
+        <div class="container">
+            <h2 class="section-title">Program</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="images/workshops.jpg" alt="Workshops">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-time">10:00 - 12:00</span>
+                        <h3>Workshops</h3>
+                        <p>Join our interactive workshops featuring dance and drawing sessions led by professional artists. Perfect for all skill levels.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="images/food.jpg" alt="Japanese Food & Drinks">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-time">11:00 - 19:00</span>
+                        <h3>Japanese Food & Drinks</h3>
+                        <p>Enjoy traditional Japanese cuisine including tea café, takoyaki, and more! All food is vegan-friendly.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="images/exhibitions.jpg" alt="Exhibitions">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-time">10:00 - 19:00</span>
+                        <h3>Exhibitions</h3>
+                        <p>Experience diverse artworks from talented creators based in Japan and Europe, showcasing contemporary expressions.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="images/performances.jpg" alt="Performances">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-time">14:00 - 17:30</span>
+                        <h3>Performances</h3>
+                        <p>Witness captivating performances including storytelling, hip-hop, Japanese dance, ballet, music, and bon-dance.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="images/picnic.jpg" alt="Community Picnic">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-time">12:30 - 14:00</span>
+                        <h3>Community Picnic</h3>
+                        <p>Connect with fellow attendees during our community picnic. Bring your own lunch or purchase delicious Japanese food on-site.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="images/closing.jpg" alt="Closing Ceremony">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-time">18:00 - 19:00</span>
+                        <h3>Closing Ceremony</h3>
+                        <p>Join us for the closing celebration featuring collaborative performances and reflections on the day's experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Exhibition Section -->
+    <section id="exhibition" class="exhibition">
+        <div class="container">
+            <h2 class="section-title">Exhibition</h2>
+            <div class="exhibition-content">
+                <div class="exhibition-text content">
+                    <p>Discover works from more than 40 eclectic creatives based in Japan and Europe. Our exhibition features diverse mediums including visual arts, installations, research projects, and interactive experiences.</p>
+                </div>
+                <div class="exhibition-gallery">
+                    <div class="gallery-item">
+                        <img src="images/ICHIJU-SANSAI.png" alt="Exhibition Piece 1">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-title">ICHIJU-SANSAI</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/Köyri.png" alt="Exhibition Piece 2">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-title">Köyri / 實り</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/DULLSTONE.png" alt="Exhibition Piece 3">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-title">DULLSTONE・鈍石・EIN STEIN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Floating Register Button -->
-  <div class="fixed-register">
-    <a href="https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/" target="_blank" class="fixed-register-btn" aria-label="Register Now">Register Now</a>
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    const API_KEY = 'YOUR_API_KEY';
-    document.addEventListener('DOMContentLoaded', () => {
-      let loaded = false;
-      const locSection = document.getElementById('location');
-      const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !loaded) {
-          loaded = true;
-          const script = document.createElement('script');
-          script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`;
-          script.async = true;
-          script.defer = true;
-          document.body.appendChild(script);
-        }
-      }, { threshold: 0.1 });
-      observer.observe(locSection);
-    });
-
-    function initMap() {
-      document.getElementById('static-map').style.display = 'none';
-      const map = new google.maps.Map(document.getElementById('jdzb-map'), {
-        center: { lat: 52.4475939, lng: 13.3012097 },
-        zoom: 15
-      });
-      new google.maps.Marker({
-        position: { lat: 52.4475939, lng: 13.3012097 },
-        map,
-        title: 'Japanisch-Deutsches Zentrum Berlin'
-      });
-    }
-  </script>
-</body>
-</html>
+    
+    <!-- Participate Section -->
+    <section id="participate" class="participate">
+        <div class="container">
+            <h2 class="section-title">How to Participate</h2>
+            <div class="participate-content content">
+                <p>Learn, challenge, and find your own path. We welcome visitors to experience this borderless festival of expression and dialogue.</p>
+                <p>Entry to the festival is free and donation-based. To secure your spot and receive event updates, please register as a visitor through our registration page.</p>
+                <p>Come and immerse yourself in a day full of creative energy, cultural exchange, and artistic exploration!</p>
+                <!-- Register button removed from here as it's now fixed on the page -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-title">Location</h2>
+            <div class="location-content content">
+                <div class="location-info">
+                    <h3>JDZB</h3>
+                    <p>Japanisch-Deutsches Zentrum Berlin</p>
+                    <ul>
+                        <li><i>📍</i> Saargemünder Str. 2, 14195 Berlin, Germany</li>
+                        <li><i>🕙</i> May 24, 2025, 10:00 - 19:00</li>
+                        <li><i>💰</i> Free Entry (Donation Based)</li>
+                    </ul>
+                    <p>The Japanese-German Center Berlin (JDZB) is a bilateral institution that promotes exchange and understanding between Japan and Germany through cultural events, academic programs, and artistic exhibitions.</p>
+                </div>
+                <div class="location-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.7497382877!2d13.28359!3d52.44811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8505ceb78d8af%3A0x5cb5b5ee2d6a6f0e!2sJapanisch-Deutsches%20Zentrum%20Berlin!5e0!3m2!1sen!2sde!4v1623456789"
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="JDZB Location Map">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container
