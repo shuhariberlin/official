@@ -500,7 +500,17 @@
             position: relative;
         }
         
-        .location-map iframe {
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: 0;
@@ -979,13 +989,16 @@
                     <p>The Japanese-German Center Berlin (JDZB) is a bilateral institution that promotes exchange and understanding between Japan and Germany through cultural events, academic programs, and artistic exhibitions.</p>
                 </div>
                 <div class="location-map">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.7358573677864!2d13.280791015847475!3d52.4479291479811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85a360f99a8ed%3A0x5a0e3c5d5e5e5e5e!2sJapanisch-Deutsches%20Zentrum%20Berlin!5e0!3m2!1sen!2sde!4v1623456789&hl=en"
-                        allowfullscreen="" 
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="JDZB Location Map - Japanisch-Deutsches Zentrum Berlin">
-                    </iframe>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=place_id:ChIJ243wXi2FqEcROqPnXlw8POU&language=en&zoom=15"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Map of Japanisch-Deutsches Zentrum Berlin"
+                            aria-label="Map showing Japanisch-Deutsches Zentrum Berlin">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1014,10 +1027,10 @@
                 <p>We gratefully acknowledge the support of our sponsors who make this festival possible.</p>
                 <div class="sponsors-grid">
                     <div class="sponsor-item">
-                        <img src="images/jdzb_logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary">
+                        <img src="images/jdzb-logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary">
                     </div>
                     <div class="sponsor-item">
-                        <img src="images/tobitate_logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create">
+                        <img src="images/tobitate-logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create">
                     </div>
                 </div>
             </div>
