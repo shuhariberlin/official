@@ -555,6 +555,51 @@
             transform: translateY(-5px);
         }
         
+        /* Sponsors Section */
+        .sponsors {
+            padding: 100px 0;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .sponsors-content {
+            text-align: center;
+        }
+        
+        .sponsors-content p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sponsors-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .sponsor-item {
+            flex: 0 1 300px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .sponsor-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .sponsor-item img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 150px;
+        }
+        
         /* Footer */
         footer {
             padding: 40px 0;
@@ -704,6 +749,14 @@
                 height: auto;
                 width: 100%;
             }
+            
+            .sponsors-grid {
+                gap: 40px;
+            }
+            
+            .sponsor-item {
+                flex: 0 1 250px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -725,6 +778,16 @@
             
             .contact-email {
                 font-size: 1.5rem;
+            }
+            
+            .sponsors-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .sponsor-item {
+                flex: 0 1 100%;
+                max-width: 200px;
             }
         }
     </style>
@@ -930,4 +993,36 @@
     
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content content">
+                <p>Have questions about the festival? Interested in supporting our event? Reach out to us!</p>
+                <a href="mailto:shuharin2025@gmail.com" class="contact-email">shuharin2025@gmail.com</a>
+                <div class="social-links">
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">FB</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="sponsors">
+        <div class="container">
+            <h2 class="section-title">Our Sponsors</h2>
+            <div class="sponsors-content content">
+                <p>We gratefully acknowledge the support of our sponsors who make this festival possible.</p>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="images/jdzb-logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="images/tobitate-logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
