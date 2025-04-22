@@ -127,20 +127,59 @@
         .hero {
             height: 100vh;
             padding-top: 60px;
-            background: url('images/hero.jpg') center/cover no-repeat;
+            position: relative;
             display: flex;
             align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/hero.jpg') center/cover no-repeat;
+            opacity: 0;
+            animation: bgFadeIn 3s ease-in forwards;
+            z-index: 1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: overlayFadeIn 1s ease-in 2s forwards;
+            z-index: 2;
         }
         
         .hero-content {
-            background: rgba(0, 0, 0, 0.4);
+            position: relative;
             padding: 2rem;
             border-radius: 8px;
-            animation: fadeIn 1s ease-in 1s forwards;
             opacity: 0;
+            animation: fadeIn 1s ease-in 3s forwards;
+            z-index: 3;
+        }
+        
+        @keyframes bgFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes overlayFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         @keyframes fadeIn {
+            from { opacity: 0; }
             to { opacity: 1; }
         }
         
