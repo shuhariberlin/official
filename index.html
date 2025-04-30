@@ -522,47 +522,98 @@
             position: relative;
         }
         
-        .contact-content {
+        /* Contact Form Styles */
+        .contact-form {
+            margin-top: 40px;
+            width: 100%;
             max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
         }
         
-        .contact-content p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
+        .form-group {
+            margin-bottom: 25px;
         }
         
-        .contact-email {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 40px;
+        .form-label {
             display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
         }
         
-        .social-links {
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
         }
         
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.1);
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-required {
+            color: var(--primary);
+            margin-left: 3px;
+        }
+        
+        .form-checkbox {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #000;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .form-checkbox input {
+            margin-top: 3px;
+            margin-right: 10px;
+        }
+        
+        .form-checkbox label {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .form-checkbox a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .form-submit {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
         }
         
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
+        .form-submit:hover {
+            background-color: #222;
+            transform: translateY(-2px);
+        }
+        
+        .form-submit:active {
+            transform: translateY(0);
+        }
+        
+        .contact-content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         /* Sponsors Section */
@@ -1013,14 +1064,38 @@
         </div>
     </section>
     
-    <!-- Contact Section -->
+    <!-- Contact Section with Form -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
             <div class="contact-content content">
-                <p>Have questions about the festival? Interested in supporting our event? Reach out to us!</p>
-                <a href="mailto:shuharin2025@gmail.com" class="contact-email">shuharin2025@gmail.com</a>
-                <div class="social-links">
+                <p>Have questions about the festival? Interested in supporting our event or making a donation? Reach out to us!</p>
+                
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Name<span class="form-required">*</span></label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email<span class="form-required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Email@address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message<span class="form-required">*</span></label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Please enter your message or donation inquiry here" required></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">I agree to the <a href="#" target="_blank">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Submit</button>
+                </form>
+                
+                <div class="social-links" style="margin-top: 40px;">
                     <a href="#" class="social-link">IG</a>
                     <a href="#" class="social-link">FB</a>
                 </div>
