@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SHUHARI Berlin Festival 2025</title>
+  <title>SHUHARI Berlin Festival 2025 | Free Creative Festival in Berlin</title>
+
+  <!-- Meta Description for SEO -->
+  <meta name="description"
+        content="SHUHARI Berlin Festival 2025 | Free creative festival at the Japanisch-Deutsches Zentrum Berlin on May 24, 2025. Featuring 40+ artists with exhibitions and talks. Register now!">
+
+  <!-- Canonical URL to avoid duplicate-content issues -->
+  <link rel="canonical" href="https://shuhariberlin.github.io/official/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title"        content="SHUHARI Berlin Festival 2025">
+  <meta property="og:description"  content="Join us May 24, 2025 at JDZB for a free, donation-based creative festival featuring 40+ artists. Registration required!">
+  <meta property="og:image"        content="https://shuhariberlin.github.io/official/images/og-image.jpg">
+  <meta property="og:url"          content="https://shuhariberlin.github.io/official/">
+  <meta property="og:type"         content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="SHUHARI Berlin Festival 2025">
+  <meta name="twitter:description" content="Free entry May 24, 2025 at JDZB – a creative festival with 40+ artists. Register now!">
+  <meta name="twitter:image"       content="https://shuhariberlin.github.io/official/images/og-image.jpg">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-57VM7KFMC1"></script>
@@ -13,7 +33,7 @@
     gtag('js', new Date());
     gtag('config', 'G-57VM7KFMC1');
 
-    // Register Now ボタン追跡関数
+    // Register Now button tracking
     function trackRegisterClick(buttonLocation) {
       gtag('event', 'register_button_click', {
         'button_location': buttonLocation,
@@ -174,9 +194,6 @@
       color:var(--secondary); z-index:-1;
       right:-50px; top:-30px;
     }
-
-    /* Program (commented out) */
-    /* ...existing commented Program CSS... */
 
     /* Exhibition */
     .exhibition { padding:100px 0; position:relative; }
@@ -360,9 +377,7 @@
       .hero-content { padding:1rem; }
       .nav-links { display:none; }
       .mobile-menu { display:block; }
-      .about-content, .location-content {
-        display:block;
-      }
+      .about-content, .location-content { display:block; }
       .exhibition-gallery { grid-template-columns:repeat(2,1fr); }
       .nav-container { flex-wrap:wrap; }
       .nav-right { order:3; width:100%; display:none;
@@ -461,9 +476,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Program Section (commented out) -->
-  <!-- ... -->
 
   <!-- Exhibition Section -->
   <section id="exhibition" class="exhibition">
@@ -633,19 +645,18 @@
   </footer>
 
   <script>
-    // モバイルメニュー切り替え
-    document.querySelector('.mobile-menu').addEventListener('click', function(){
-      document.querySelector('.nav-right').classList.toggle('show');
-    });
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu')
+      .addEventListener('click', () => document.querySelector('.nav-right').classList.toggle('show'));
 
-    // 画像エラー時フォールバック
-    document.addEventListener('DOMContentLoaded', function(){
-      document.querySelectorAll('img').forEach(function(img){
+    // Image error fallback
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('img').forEach(img => {
         img.onerror = function(){
-          var alt = this.alt || 'Image';
-          var fallback = document.createElement('div');
+          const altText = this.alt || 'Image';
+          const fallback = document.createElement('div');
           fallback.className = 'img-fallback';
-          fallback.textContent = alt;
+          fallback.textContent = altText;
           this.parentNode.replaceChild(fallback, this);
           console.error('Failed to load image:', this.src);
         }
