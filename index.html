@@ -78,17 +78,29 @@
       margin: 0 auto; padding: 0 20px;
     }
 
-    /* Navigation - 背景色をmaroon(#800000)に変更 */
+    /* ======= 根本的な修正: ナビゲーションの再設計 ======= */
+    
+    /* Navigation - 背景を透明に設定し、スクロール時のみ背景色を表示 */
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; position: fixed; width: 100%; z-index: 100;
-      background-color: var(--nav-bg-color); /* maroonに変更 */
+      padding: 20px 0; position: absolute; width: 100%; z-index: 100;
+      background-color: transparent; /* 背景を透明に */
       font-family: 'Helvetica Neue', Arial, sans-serif;
       height: var(--nav-height);
+      transition: background-color 0.3s ease;
     }
+    
+    /* スクロール時に背景色を表示するクラス (JavaScriptで追加) */
+    nav.scrolled {
+      position: fixed;
+      background-color: var(--nav-bg-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
     .logo {
       font-size: 1.8rem; font-weight: 700; color: #fff;
       text-decoration: none;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
     }
     .nav-links { display: flex; }
     .nav-links li { margin-left: 30px; }
@@ -97,11 +109,13 @@
       font-weight: 600;
       transition: color var(--transition);
       text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
     }
     .nav-links a:hover { color: #ffcccc; }
     .mobile-menu { 
       display: none; cursor: pointer; 
       color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
     }
     .social-header {
       display: flex; align-items: center; gap: 15px; margin-left: 20px;
@@ -110,6 +124,7 @@
       color: #fff;
       font-size: 1.2rem;
       transition: color var(--transition);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
     }
     .social-header a:hover { color: #ffcccc; }
     .nav-container {
@@ -118,20 +133,32 @@
     }
     .nav-right { display: flex; align-items: center; }
 
-    /* Hero - パディングを調整してナビゲーションバーとの重なりを解消 */
+    /* ======= 根本的な修正: ヒーローセクションの再設計 ======= */
+    
+    /* Hero - フルスクリーンデザインに変更 */
     .hero {
       height: 100vh; 
-      padding-top: calc(var(--nav-height) + 20px); /* ナビバー高さ + 余白 */
-      position: relative; display: flex;
-      align-items: center; overflow: hidden;
+      position: relative; 
+      display: flex;
+      align-items: center; 
+      overflow: hidden;
+      padding: 0; /* パディングを削除 */
     }
+    
+    /* ヒーロー背景画像 - 全面に配置 */
     .hero::before {
-      content:''; position:absolute; top:0; left:0;
-      width:100%; height:100%;
-      background:url('images/hero.jpg') center/cover no-repeat;
-      opacity:0; animation:bgFadeIn 3s ease-in forwards;
-      z-index:1;
+      content:''; 
+      position: absolute; 
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      background: url('images/hero.jpg') center/cover no-repeat;
+      opacity: 0; 
+      animation: bgFadeIn 3s ease-in forwards;
+      z-index: 1;
     }
+    
     .hero::after {
       content:''; position:absolute; top:0; left:0;
       width:100%; height:100%;
@@ -139,14 +166,21 @@
       opacity:0; animation:overlayFadeIn 1s ease-in 2s forwards;
       z-index:2;
     }
+    
     .hero-content {
-      position: relative; padding:2rem; border-radius:8px;
-      opacity:0; animation:fadeIn 1s ease-in 3s forwards;
-      z-index:3;
+      position: relative; 
+      padding: 2rem; 
+      border-radius: 8px;
+      opacity: 0; 
+      animation: fadeIn 1s ease-in 3s forwards;
+      z-index: 3;
+      margin-top: var(--nav-height); /* ナビバーの高さ分だけコンテンツを下げる */
     }
+    
     @keyframes bgFadeIn { from{opacity:0;} to{opacity:1;} }
     @keyframes overlayFadeIn { from{opacity:0;} to{opacity:1;} }
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+    
     .hero-title {
       font-size:4rem; font-weight:900; color:var(--text-light);
       margin-bottom:1rem;
@@ -429,13 +463,14 @@
       text-align:center;
     }
 
-    /* Responsive */
+    /* Responsive - スクロール時のナビゲーション対応も追加 */
     @media (max-width:768px) {
       nav {
-        height: var(--nav-height-mobile); /* モバイル用の高さを適用 */
+        height: var(--nav-height-mobile);
+        background-color: var(--nav-bg-color); /* モバイルでは常に背景色表示 */
       }
-      .hero {
-        padding-top: calc(var(--nav-height-mobile) + 20px); /* モバイル用パディング */
+      .hero-content {
+        margin-top: var(--nav-height-mobile);
       }
       .hero-title { font-size:2.5rem; }
       .hero-content { padding:1rem; }
@@ -729,6 +764,21 @@
           console.error('Failed to load image:', this.src);
         }
       });
+      
+      // ナビゲーションバーのスクロール処理
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+      
+      // 初期状態の確認（ページ読み込み時にすでにスクロールされている場合）
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      }
     });
   </script>
 </body>
