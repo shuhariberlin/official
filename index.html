@@ -54,6 +54,8 @@
       --background: #ffffff;
       --bg-overlay: rgba(255,255,255,0.8);
       --transition: 0.3s ease;
+      --nav-height: 70px; /* ナビゲーションバーの高さを変数として定義 */
+      --nav-height-mobile: 60px; /* モバイル用の高さ */
     }
 
     /* Reset & Base */
@@ -75,12 +77,13 @@
       margin: 0 auto; padding: 0 20px;
     }
 
-    /* Navigation */
+    /* Navigation - 高さを明示的に設定 */
     nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; position: fixed; width: 100%; z-index: 100;
       background-color: rgba(255,255,255,0.9);
       font-family: 'Helvetica Neue', Arial, sans-serif;
+      height: var(--nav-height); /* 変数を使用して高さを設定 */
     }
     .logo {
       font-size: 1.8rem; font-weight: 700; color: #000;
@@ -109,9 +112,10 @@
     }
     .nav-right { display: flex; align-items: center; }
 
-    /* Hero */
+    /* Hero - パディングを調整してナビゲーションバーとの重なりを解消 */
     .hero {
-      height: 100vh; padding-top: 60px;
+      height: 100vh; 
+      padding-top: calc(var(--nav-height) + 20px); /* ナビバー高さ + 余白 */
       position: relative; display: flex;
       align-items: center; overflow: hidden;
     }
@@ -373,6 +377,12 @@
 
     /* Responsive */
     @media (max-width:768px) {
+      nav {
+        height: var(--nav-height-mobile); /* モバイル用の高さを適用 */
+      }
+      .hero {
+        padding-top: calc(var(--nav-height-mobile) + 20px); /* モバイル用パディング */
+      }
       .hero-title { font-size:2.5rem; }
       .hero-content { padding:1rem; }
       .nav-links { display:none; }
@@ -577,7 +587,7 @@
       <h2 class="section-title">Contact Us</h2>
       <div class="contact-content content">
         <p>
-          Have questions about the festival or want to support us with a donation? Send us a message—we’ll follow up with details by email!
+          Have questions about the festival or want to support us with a donation? Send us a message—we'll follow up with details by email!
         </p>
         <form class="contact-form" action="https://formspree.io/f/movdjrgo" method="POST">
           <div class="form-group">
@@ -631,8 +641,6 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-logo">SHUHARI</div>
-      <div class="footer-text">© 2025 SHUHARI Berlin Festival. All rights reserved.</div>
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#exhibition">Exhibition</a>
@@ -664,4 +672,6 @@
     });
   </script>
 </body>
-</html>
+</html>-logo">SHUHARI</div>
+      <div class="footer-text">© 2025 SHUHARI Berlin Festival. All rights reserved.</div>
+      <div class="footer
