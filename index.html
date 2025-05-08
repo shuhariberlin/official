@@ -56,7 +56,7 @@
       --transition: 0.3s ease;
       --nav-height: 70px; /* ナビゲーションバーの高さを変数として定義 */
       --nav-height-mobile: 60px; /* モバイル用の高さ */
-      --nav-bg-color: #b22222; /* メニューバーの背景色をfirebrickに設定 */
+      --nav-bg-color: #800000; /* メニューバーの背景色をmaroonに設定 (変更点1) */
     }
 
     /* Reset & Base */
@@ -78,47 +78,47 @@
       margin: 0 auto; padding: 0 20px;
     }
 
-    /* Navigation - 背景色をfirebrick(#b22222)に変更 */
+    /* Navigation - 背景色をmaroon(#800000)に変更 */
     nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; position: fixed; width: 100%; z-index: 100;
-      background-color: var(--nav-bg-color); /* firebrickに変更 */
+      background-color: var(--nav-bg-color); /* maroonに変更 */
       font-family: 'Helvetica Neue', Arial, sans-serif;
       height: var(--nav-height);
     }
     .logo {
-      font-size: 1.8rem; font-weight: 700; color: #fff; /* テキスト色を白に変更 */
+      font-size: 1.8rem; font-weight: 700; color: #fff;
       text-decoration: none;
     }
     .nav-links { display: flex; }
     .nav-links li { margin-left: 30px; }
     .nav-links a {
-      color: #fff; /* テキスト色を白に変更 */
+      color: #fff;
       font-weight: 600;
       transition: color var(--transition);
       text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;
     }
-    .nav-links a:hover { color: #ffcccc; } /* ホバー色を調整 */
+    .nav-links a:hover { color: #ffcccc; }
     .mobile-menu { 
       display: none; cursor: pointer; 
-      color: #fff; /* 色を白に変更 */
+      color: #fff;
     }
     .social-header {
       display: flex; align-items: center; gap: 15px; margin-left: 20px;
     }
     .social-header a {
-      color: #fff; /* 色を白に変更 */
+      color: #fff;
       font-size: 1.2rem;
       transition: color var(--transition);
     }
-    .social-header a:hover { color: #ffcccc; } /* ホバー色を調整 */
+    .social-header a:hover { color: #ffcccc; }
     .nav-container {
       display: flex; justify-content: space-between; align-items: center;
       width: 100%;
     }
     .nav-right { display: flex; align-items: center; }
 
-    /* Hero - パディングを調整してナビゲーションバーとの重なりを解消 */
+    /* Hero - パディングを調整してナビゲーションバーとの重なりを解消 (変更点2) */
     .hero {
       height: 100vh; 
       padding-top: calc(var(--nav-height) + 20px); /* ナビバー高さ + 余白 */
@@ -204,7 +204,7 @@
       background:#000; margin-top:15px;
     }
     .content {
-      background:rgba(255,255,255,0.8); /* 透過率80%に調整 */
+      background:rgba(255,255,255,0.8); /* 透過率80% */
       padding:30px; box-shadow:0 5px 15px rgba(0,0,0,0.05);
     }
     .about-content {
@@ -228,12 +228,6 @@
       max-width: 100%; /* レスポンシブ対応のため */
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    /* 「守破離」の文字を削除（コメントアウト） */
-    /* .kanji {
-      position:absolute; font-size:10rem; opacity:0.1;
-      color:var(--secondary); z-index:3;
-      right:-50px; top:-30px;
-    } */
 
     /* Exhibition */
     .exhibition { padding:100px 0; position:relative; }
@@ -265,8 +259,32 @@
       color:var(--text-light); font-size:1.2rem; font-weight:700;
     }
 
-    /* Participate */
-    .participate { padding:100px 0; position:relative; }
+    /* Participate - 背景画像追加 (変更点3) */
+    .participate { 
+      padding:100px 0; 
+      position:relative; 
+      overflow:hidden;
+      background-image: url('images/pngdata-25-min.png');
+      background-size: contain; /* 画像の比率を維持 */
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* コンテンツの可読性を確保するためのオーバーレイ */
+    .participate::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9); /* 白のオーバーレイ */
+      z-index: 1;
+    }
+    /* コンテンツを背景の上に表示するため */
+    .participate .container {
+      position: relative;
+      z-index: 2;
+    }
     .participate-content {
       max-width:800px; margin:0 auto; text-align:left;
     }
@@ -448,6 +466,7 @@
       .sponsors-grid { flex-direction:column; gap:30px; }
       .sponsor-item { flex:0 1 100%; max-width:200px; }
       .about { background-size: cover; } /* 小さい画面では背景画像をカバーモードに */
+      .participate { background-size: cover; } /* 小さい画面では背景画像をカバーモードに */
     }
   </style>
 </head>
@@ -520,7 +539,6 @@
           </p>
         </div>
         <div class="about-img">
-          <!-- 「守破離」の文字を削除 (span要素を削除) -->
           <img src="images/logo.jpg" alt="Shuhari Festival Logo" />
         </div>
       </div>
