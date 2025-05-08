@@ -161,8 +161,32 @@
       box-shadow:0 8px 16px rgba(0,0,0,0.2);
     }
 
-    /* About Section */
-    .about { padding:120px 0 80px; position:relative; overflow:hidden; }
+    /* About Section - 背景画像追加 */
+    .about { 
+      padding:120px 0 80px; 
+      position:relative; 
+      overflow:hidden;
+      background-image: url('images/pngdata-25-min.png');
+      background-size: contain; /* 画像の比率を維持 */
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* コンテンツの可読性を確保するためのオーバーレイ */
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9); /* 白のオーバーレイ */
+      z-index: 1;
+    }
+    /* コンテンツを背景の上に表示するため */
+    .about .container {
+      position: relative;
+      z-index: 2;
+    }
     .section-title {
       font-size:2.5rem; margin-bottom:40px;
       text-transform:uppercase; letter-spacing:1px;
@@ -188,14 +212,19 @@
     }
     .about-img {
       position:relative; min-width:300px; flex:1;
+      display: flex;
+      justify-content: center;
     }
     .about-img img {
-      width:100%; height:825px; object-fit:cover;
-      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      width: 825px; /* 幅を825pxに固定 */
+      height: 827px; /* 高さを827pxに設定 */
+      object-fit: contain; /* アスペクト比を維持 */
+      max-width: 100%; /* レスポンシブ対応のため */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
     .kanji {
       position:absolute; font-size:10rem; opacity:0.1;
-      color:var(--secondary); z-index:-1;
+      color:var(--secondary); z-index:3; /* オーバーレイの上に表示 */
       right:-50px; top:-30px;
     }
 
@@ -395,7 +424,12 @@
       .nav-right.show { display:flex; }
       .social-header { margin-top:15px; margin-left:0; }
       .program-img, .gallery-item { width:100%; height:auto; }
-      .about-img img { width:100%; height:auto; }
+      .about-img { justify-content: flex-start; }
+      .about-img img { 
+        width: 100%; 
+        height: auto; 
+        max-height: 827px; /* 最大高さを制限 */
+      }
       .sponsors-grid { gap:40px; }
       .sponsor-item { flex:0 1 250px; }
     }
@@ -406,9 +440,8 @@
       .contact-email { font-size:1.5rem; }
       .sponsors-grid { flex-direction:column; gap:30px; }
       .sponsor-item { flex:0 1 100%; max-width:200px; }
+      .about { background-size: cover; } /* 小さい画面では背景画像をカバーモードに */
     }
-
-    /* NOTE: Fixed register-button styles removed entirely */
   </style>
 </head>
 <body>
@@ -641,6 +674,8 @@
   <!-- Footer -->
   <footer>
     <div class="container">
+      <div class="footer-logo">SHUHARI</div>
+      <div class="footer-text">© 2025 SHUHARI Berlin Festival. All rights reserved.</div>
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#exhibition">Exhibition</a>
@@ -672,6 +707,4 @@
     });
   </script>
 </body>
-</html>-logo">SHUHARI</div>
-      <div class="footer-text">© 2025 SHUHARI Berlin Festival. All rights reserved.</div>
-      <div class="footer
+</html>
