@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SHUHARI Berlin Festival 2025 | Free Creative Festival in Berlin</title>
+  <!-- Title optimized (≤60 chars, keyword front‐loaded) -->
+  <title>SHUHARI Berlin Festival 2025 | Free Creative Fest in Berlin</title>
 
-  <!-- Meta Description for SEO -->
+  <!-- Meta description optimized (150–160 chars, CTA at end) -->
   <meta name="description"
-        content="SHUHARI Berlin Festival 2025 | Free creative festival at the Japanisch-Deutsches Zentrum Berlin on May 24, 2025. Featuring 40+ artists with exhibitions and talks. Register now!">
+        content="Join SHUHARI Berlin Festival 2025 on May 24 at JDZB Berlin. Free entry (donation-based), 40+ artists with exhibitions and talks. Registration required!">
 
   <!-- Canonical URL to avoid duplicate-content issues -->
   <link rel="canonical" href="https://shuhariberlin.github.io/official/">
@@ -24,6 +25,37 @@
   <meta name="twitter:title"       content="SHUHARI Berlin Festival 2025">
   <meta name="twitter:description" content="Free entry May 24, 2025 at JDZB – a creative festival with 40+ artists. Register now!">
   <meta name="twitter:image"       content="https://shuhariberlin.github.io/official/images/og-image.jpg">
+
+  <!-- Event Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "SHUHARI Berlin Festival 2025",
+    "startDate": "2025-05-24T10:00:00+02:00",
+    "endDate":   "2025-05-24T19:00:00+02:00",
+    "location": {
+      "@type": "Place",
+      "name": "JDZB Japanisch-Deutsches Zentrum Berlin",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Saargemünder Str. 2",
+        "addressLocality": "Berlin",
+        "postalCode": "14195",
+        "addressCountry": "DE"
+      }
+    },
+    "image": "https://shuhariberlin.github.io/official/images/og-image.jpg",
+    "description": "SHUHARI Berlin Festival 2025: Free entry at JDZB. 40+ artists, talks & exhibitions. Registration required.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-57VM7KFMC1"></script>
@@ -54,12 +86,10 @@
       --background: #ffffff;
       --bg-overlay: rgba(255,255,255,0.8);
       --transition: 0.3s ease;
-      --nav-height: 70px; /* ナビゲーションバーの高さを変数として定義 */
-      --nav-height-mobile: 60px; /* モバイル用の高さ */
-      --nav-bg-color: #800000; /* メニューバーの背景色をmaroonに設定 */
+      --nav-height: 70px;
+      --nav-height-mobile: 60px;
+      --nav-bg-color: #800000;
     }
-
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0; padding: 0;
@@ -78,53 +108,43 @@
       margin: 0 auto; padding: 0 20px;
     }
 
-    /* ======= 根本的な修正: ナビゲーションの再設計 ======= */
-    
-    /* Navigation - 背景を透明に設定し、スクロール時のみ背景色を表示 */
+    /* Navigation */
     nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; position: absolute; width: 100%; z-index: 100;
-      background-color: transparent; /* 背景を透明に */
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: transparent;
       height: var(--nav-height);
-      transition: background-color 0.3s ease;
+      transition: background-color var(--transition);
     }
-    
-    /* スクロール時に背景色を表示するクラス (JavaScriptで追加) */
     nav.scrolled {
       position: fixed;
       background-color: var(--nav-bg-color);
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    
     .logo {
       font-size: 1.8rem; font-weight: 700; color: #fff;
-      text-decoration: none;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .nav-links { display: flex; }
     .nav-links li { margin-left: 30px; }
     .nav-links a {
-      color: #fff;
-      font-weight: 600;
+      color: #fff; font-weight: 600;
       transition: color var(--transition);
       text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .nav-links a:hover { color: #ffcccc; }
-    .mobile-menu { 
-      display: none; cursor: pointer; 
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
+    .mobile-menu {
+      display: none; cursor: pointer; color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .social-header {
       display: flex; align-items: center; gap: 15px; margin-left: 20px;
     }
     .social-header a {
-      color: #fff;
-      font-size: 1.2rem;
+      color: #fff; font-size: 1.2rem;
       transition: color var(--transition);
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* テキストに影を追加して見やすく */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .social-header a:hover { color: #ffcccc; }
     .nav-container {
@@ -133,54 +153,31 @@
     }
     .nav-right { display: flex; align-items: center; }
 
-    /* ======= 根本的な修正: ヒーローセクションの再設計 ======= */
-    
-    /* Hero - フルスクリーンデザインに変更 */
+    /* Hero Section */
     .hero {
-      height: 100vh; 
-      position: relative; 
-      display: flex;
-      align-items: center; 
-      overflow: hidden;
-      padding: 0; /* パディングを削除 */
+      height: 100vh; position: relative; display: flex; align-items: center;
+      overflow: hidden; padding: 0;
     }
-    
-    /* ヒーロー背景画像 - 全面に配置 */
     .hero::before {
-      content:''; 
-      position: absolute; 
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      content:''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url('images/hero.jpg') center/cover no-repeat;
-      opacity: 0; 
-      animation: bgFadeIn 3s ease-in forwards;
-      z-index: 1;
+      opacity: 0; animation: bgFadeIn 3s ease-in forwards; z-index: 1;
     }
-    
     .hero::after {
       content:''; position:absolute; top:0; left:0;
       width:100%; height:100%;
       background:rgba(0,0,0,0.4);
-      opacity:0; animation:overlayFadeIn 1s ease-in 2s forwards;
-      z-index:2;
+      opacity:0; animation:overlayFadeIn 1s ease-in 2s forwards; z-index:2;
     }
-    
     .hero-content {
-      position: relative; 
-      padding: 2rem; 
-      border-radius: 8px;
-      opacity: 0; 
-      animation: fadeIn 1s ease-in 3s forwards;
-      z-index: 3;
-      margin-top: var(--nav-height); /* ナビバーの高さ分だけコンテンツを下げる */
+      position: relative; padding: 2rem; border-radius: 8px;
+      opacity: 0; animation: fadeIn 1s ease-in 3s forwards; z-index: 3;
+      margin-top: var(--nav-height);
     }
-    
     @keyframes bgFadeIn { from{opacity:0;} to{opacity:1;} }
     @keyframes overlayFadeIn { from{opacity:0;} to{opacity:1;} }
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
-    
     .hero-title {
       font-size:4rem; font-weight:900; color:var(--text-light);
       margin-bottom:1rem;
@@ -191,55 +188,36 @@
     .hero-date { font-size:1.5rem; font-weight:700; }
     .hero-btn {
       display:inline-block; background:var(--primary);
-      color:var(--text-light);
-      padding:0.75rem 1.5rem; border-radius:50px;
-      font-weight:700;
-      transition:transform var(--transition), box-shadow var(--transition);
+      color:var(--text-light); padding:0.75rem 1.5rem; border-radius:50px;
+      font-weight:700; transition:transform var(--transition), box-shadow var(--transition);
     }
     .hero-btn:hover {
       transform: translateY(-3px);
       box-shadow:0 8px 16px rgba(0,0,0,0.2);
     }
 
-    /* About Section - 背景画像追加 */
-    .about { 
-      padding:120px 0 80px; 
-      position:relative; 
-      overflow:hidden;
+    /* About Section */
+    .about { padding:120px 0 80px; position:relative; overflow:hidden;
       background-image: url('images/pngdata-25-min.png');
-      background-size: contain; /* 画像の比率を維持 */
-      background-position: center;
-      background-repeat: no-repeat;
+      background-size: contain; background-position: center; background-repeat: no-repeat;
     }
-    /* コンテンツの可読性を確保するためのオーバーレイ */
     .about::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.9); /* 白のオーバーレイ */
-      z-index: 1;
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.9); z-index: 1;
     }
-    /* コンテンツを背景の上に表示するため */
-    .about .container {
-      position: relative;
-      z-index: 2;
-    }
+    .about .container { position: relative; z-index: 2; }
     .section-title {
-      font-size:2.5rem; margin-bottom:40px;
-      text-transform:uppercase; letter-spacing:1px;
-      font-weight:800; color:var(--text); position:relative;
+      font-size:2.5rem; margin-bottom:40px; text-transform:uppercase;
+      letter-spacing:1px; font-weight:800; color:var(--text); position:relative;
       text-align:left;
     }
     .section-title::after {
-      content:''; display:block; width:60px; height:3px;
-      background:#000; margin-top:15px;
+      content:''; display:block; width:60px; height:3px; background:#000; margin-top:15px;
     }
     .content {
-      background:rgba(255,255,255,0.8); /* 透過率80% */
-      padding:30px; box-shadow:0 5px 15px rgba(0,0,0,0.05);
+      background:rgba(255,255,255,0.8); padding:30px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
     }
     .about-content {
       display:grid; grid-template-columns:1fr 1fr; gap:40px;
@@ -251,80 +229,55 @@
       margin-bottom:20px; line-height:1.6; font-size:1rem;
     }
     .about-img {
-      position:relative; min-width:300px; flex:1;
-      display: flex;
-      justify-content: center;
+      position:relative; min-width:300px; flex:1; display: flex; justify-content: center;
     }
     .about-img img {
-      width: 825px; /* 幅を825pxに固定 */
-      height: 827px; /* 高さを827pxに設定 */
-      object-fit: contain; /* アスペクト比を維持 */
-      max-width: 100%; /* レスポンシブ対応のため */
+      width: 825px; height: 827px; object-fit: contain; max-width: 100%;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
-    /* Exhibition */
+    /* Exhibition Section */
     .exhibition { padding:100px 0; position:relative; }
     .exhibition-content { display:flex; flex-direction:column; align-items:flex-start; }
     .exhibition-text p { font-size:1.2rem; margin-bottom:30px; }
     .exhibition-gallery {
-      display:grid; grid-template-columns:repeat(3,1fr);
-      gap:20px; width:100%;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:20px; width:100%;
     }
     .gallery-item {
-      position:relative; overflow:hidden;
-      background:var(--secondary);
+      position:relative; overflow:hidden; background:var(--secondary);
       width:320px; height:400px;
     }
     .gallery-item img {
-      width:100%; height:100%; object-fit:cover;
-      transition:transform 0.5s;
+      width:100%; height:100%; object-fit:cover; transition:transform 0.5s;
     }
     .gallery-item:hover img { transform:scale(1.1); }
     .gallery-item-overlay {
-      position:absolute; top:0; left:0;
-      width:100%; height:100%;
+      position:absolute; top:0; left:0; width:100%; height:100%;
       background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      display:flex; align-items:flex-end;
-      padding:20px; opacity:0; transition:opacity 0.3s;
+      display:flex; align-items:flex-end; padding:20px; opacity:0;
+      transition:opacity 0.3s;
     }
     .gallery-item:hover .gallery-item-overlay { opacity:1; }
     .gallery-item-title {
       color:var(--text-light); font-size:1.2rem; font-weight:700;
     }
 
-    /* Participate - 背景画像追加 */
-    .participate { 
-      padding:100px 0; 
-      position:relative; 
-      overflow:hidden;
+    /* Participate Section */
+    .participate { padding:100px 0; position:relative; overflow:hidden;
       background-image: url('images/pngdata-25-min.png');
-      background-size: contain; /* 画像の比率を維持 */
-      background-position: center;
-      background-repeat: no-repeat;
+      background-size: contain; background-position: center; background-repeat: no-repeat;
     }
-    /* コンテンツの可読性を確保するためのオーバーレイ */
     .participate::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.9); /* 白のオーバーレイ */
-      z-index: 1;
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 1;
     }
-    /* コンテンツを背景の上に表示するため */
-    .participate .container {
-      position: relative;
-      z-index: 2;
-    }
+    .participate .container { position: relative; z-index: 2; }
     .participate-content {
       max-width:800px; margin:0 auto; text-align:left;
     }
     .participate-content p { margin-bottom:30px; font-size:1.2rem; }
 
-    /* Location */
+    /* Location Section */
     .location { padding:100px 0; position:relative; }
     .location-content {
       display:flex; flex-wrap:wrap; justify-content:space-between;
@@ -338,8 +291,7 @@
     .location-info p { margin-bottom:20px; font-size:1.1rem; }
     .location-info ul { margin-bottom:30px; }
     .location-info li {
-      display:flex; align-items:center; margin-bottom:10px;
-      font-size:1.1rem;
+      display:flex; align-items:center; margin-bottom:10px; font-size:1.1rem;
     }
     .location-info li i {
       margin-right:10px; font-size:1.2rem; color:#000;
@@ -348,23 +300,20 @@
       position:relative; padding-bottom:56.25%; height:0; overflow:hidden;
     }
     .map-container iframe {
-      position:absolute; top:0; left:0;
-      width:100%; height:100%; border:0;
+      position:absolute; top:0; left:0; width:100%; height:100%; border:0;
     }
 
-    /* Contact */
+    /* Contact Section */
     .contact { padding:100px 0; position:relative; }
     .contact-form {
       max-width:600px; margin-top:40px; width:100%;
     }
     .form-group { margin-bottom:25px; }
     .form-label {
-      display:block; margin-bottom:8px;
-      font-weight:600; color:var(--text);
+      display:block; margin-bottom:8px; font-weight:600; color:var(--text);
     }
     .form-input, .form-textarea {
-      width:100%; padding:12px 15px;
-      border:1px solid #ddd; border-radius:4px;
+      width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:4px;
       font-size:1rem; transition:border-color 0.3s;
     }
     .form-input:focus, .form-textarea:focus {
@@ -381,34 +330,30 @@
     }
     .form-checkbox a { color:var(--primary); text-decoration:underline; }
     .form-submit {
-      background:#000; color:#fff; border:none;
-      padding:12px 25px; font-weight:600; font-size:1rem;
-      border-radius:4px; cursor:pointer;
+      background:#000; color:#fff; border:none; padding:12px 25px;
+      font-weight:600; font-size:1rem; border-radius:4px; cursor:pointer;
       transition:background-color 0.3s, transform 0.3s;
     }
     .form-submit:hover { background:#222; transform:translateY(-2px); }
     .form-submit:active { transform:translateY(0); }
     .contact-content {
-      background:rgba(255,255,255,0.8);
-      padding:30px; box-shadow:0 5px 15px rgba(0,0,0,0.05);
+      background:rgba(255,255,255,0.8); padding:30px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
     }
 
-    /* Sponsors */
+    /* Sponsors Section */
     .sponsors {
-      padding:100px 0; position:relative;
-      background:rgba(255,255,255,0.95);
+      padding:100px 0; position:relative; background:rgba(255,255,255,0.95);
     }
     .sponsors-content p {
       font-size:1.2rem; margin-bottom:50px; max-width:800px;
       margin:0 auto 50px;
     }
     .sponsors-grid {
-      display:flex; justify-content:center;
-      flex-wrap:wrap; gap:60px; margin-top:40px;
+      display:flex; justify-content:center; flex-wrap:wrap; gap:60px; margin-top:40px;
     }
     .sponsor-item {
-      flex:0 1 300px; text-align:center; padding:20px;
-      transition:transform 0.3s ease;
+      flex:0 1 300px; text-align:center; padding:20px; transition:transform 0.3s ease;
     }
     .sponsor-item img {
       max-width:100%; max-height:150px; object-fit:contain;
@@ -420,8 +365,7 @@
 
     /* Footer */
     footer {
-      padding:40px 0; text-align:center;
-      background:rgba(255,255,255,0.8); position:relative;
+      padding:40px 0; text-align:center; background:rgba(255,255,255,0.8); position:relative;
     }
     .footer-logo {
       font-size:2rem; font-weight:700; margin-bottom:20px;
@@ -430,8 +374,7 @@
       margin-bottom:20px; font-size:0.9rem; opacity:0.7;
     }
     .footer-links {
-      display:flex; justify-content:center; flex-wrap:wrap;
-      gap:20px; margin-bottom:20px;
+      display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-bottom:20px;
     }
     .footer-links a {
       color:var(--text); font-size:0.9rem; opacity:0.7;
@@ -441,9 +384,7 @@
     .footer-credit { font-size:0.8rem; opacity:0.5; }
 
     /* Social Links */
-    .social-links {
-      display:flex; gap:20px; margin-top:40px;
-    }
+    .social-links { display:flex; gap:20px; margin-top:40px; }
     .social-link {
       display:flex; align-items:center; justify-content:center;
       width:50px; height:50px; border-radius:50%;
@@ -459,19 +400,13 @@
     .img-fallback {
       display:flex; align-items:center; justify-content:center;
       background:#f5f5f5; color:#666; font-style:italic;
-      padding:20px; border:1px solid #ddd;
-      text-align:center;
+      padding:20px; border:1px solid #ddd; text-align:center;
     }
 
-    /* Responsive - スクロール時のナビゲーション対応も追加 */
+    /* Responsive adjustments */
     @media (max-width:768px) {
-      nav {
-        height: var(--nav-height-mobile);
-        background-color: var(--nav-bg-color); /* モバイルでは常に背景色表示 */
-      }
-      .hero-content {
-        margin-top: var(--nav-height-mobile);
-      }
+      nav { height: var(--nav-height-mobile); background-color: var(--nav-bg-color); }
+      .hero-content { margin-top: var(--nav-height-mobile); }
       .hero-title { font-size:2.5rem; }
       .hero-content { padding:1rem; }
       .nav-links { display:none; }
@@ -479,17 +414,11 @@
       .about-content, .location-content { display:block; }
       .exhibition-gallery { grid-template-columns:repeat(2,1fr); }
       .nav-container { flex-wrap:wrap; }
-      .nav-right { order:3; width:100%; display:none;
-                   flex-direction:column; margin-top:20px; }
+      .nav-right { order:3; width:100%; display:none; flex-direction:column; margin-top:20px; }
       .nav-right.show { display:flex; }
       .social-header { margin-top:15px; margin-left:0; }
-      .program-img, .gallery-item { width:100%; height:auto; }
       .about-img { justify-content: flex-start; }
-      .about-img img { 
-        width: 100%; 
-        height: auto; 
-        max-height: 827px; /* 最大高さを制限 */
-      }
+      .about-img img { width:100%; height:auto; max-height:827px; }
       .sponsors-grid { gap:40px; }
       .sponsor-item { flex:0 1 250px; }
     }
@@ -500,8 +429,8 @@
       .contact-email { font-size:1.5rem; }
       .sponsors-grid { flex-direction:column; gap:30px; }
       .sponsor-item { flex:0 1 100%; max-width:200px; }
-      .about { background-size: cover; } /* 小さい画面では背景画像をカバーモードに */
-      .participate { background-size: cover; } /* 小さい画面では背景画像をカバーモードに */
+      .about { background-size: cover; }
+      .participate { background-size: cover; }
     }
   </style>
 </head>
@@ -514,7 +443,6 @@
         <div class="nav-right">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <!-- <li><a href="#program">Program</a></li> -->
             <li><a href="#exhibition">Exhibition</a></li>
             <li><a href="#participate">Participate</a></li>
             <li><a href="#location">Location</a></li>
@@ -765,7 +693,7 @@
         }
       });
       
-      // ナビゲーションバーのスクロール処理
+      // Navigation bar scroll behavior
       const nav = document.querySelector('nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -774,8 +702,6 @@
           nav.classList.remove('scrolled');
         }
       });
-      
-      // 初期状態の確認（ページ読み込み時にすでにスクロールされている場合）
       if (window.scrollY > 50) {
         nav.classList.add('scrolled');
       }
