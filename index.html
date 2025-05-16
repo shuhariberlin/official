@@ -73,6 +73,15 @@
       });
       console.log('Register button clicked:', buttonLocation);
     }
+    
+    // More Info button tracking - 新規追加
+    function trackMoreInfoClick(buttonLocation) {
+      gtag('event', 'more_info_button_click', {
+        'button_location': buttonLocation,
+        'timestamp': new Date().toISOString()
+      });
+      console.log('More Info button clicked:', buttonLocation);
+    }
   </script>
 
   <style>
@@ -292,6 +301,38 @@
     .gallery-item-title {
       color:var(--text-light); font-size:1.2rem; font-weight:700;
     }
+    
+    /* More Artists セクションのスタイル */
+    .more-artists-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      width: 100%;
+      padding: 20px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    .more-artists-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      flex: 1;
+    }
+    .more-info-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: transform var(--transition), box-shadow var(--transition);
+      margin-left: 15px;
+    }
+    .more-info-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background: #222;
+    }
 
     /* Participate Section */
     .participate { padding:100px 0; position:relative; overflow:hidden;
@@ -411,46 +452,28 @@
       font-size:1.2rem; margin-bottom:50px; max-width:800px;
       margin:0 auto 50px;
     }
-    .sponsors-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
+    .sponsors-group {
+      margin-bottom: 60px;
+    }
+    .sponsors-divider {
       width: 100%;
+      height: 1px;
+      background: transparent; /* 区切り線を透明に変更 */
+      margin: 60px 0;
+    }
+    .sponsors-grid {
+      display:flex; justify-content:center; flex-wrap:wrap; gap:60px; margin-top:40px;
     }
     .sponsor-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 200px;
-      height: 200px;
-      padding: 20px;
-      transition: transform var(--transition);
-    }
-    .sponsor-item:hover {
-      transform: translateY(-5px);
-    }
-    .sponsor-img-container {
-      width: 150px;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      flex:0 1 300px; text-align:center; padding:20px; transition:transform 0.3s ease;
     }
     .sponsor-item img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      max-width:100%; max-height:150px; object-fit:contain;
     }
     .sponsor-item p {
-      margin-top: 10px;
-      font-weight: 600;
-      color: #333;
-      font-size: 0.9rem;
-      text-align: center;
+      margin-top:10px; font-weight:600; color:#333;
     }
+    .sponsor-item:hover { transform:translateY(-5px); }
 
     /* Footer */
     footer {
@@ -471,7 +494,7 @@
     }
     .footer-links a:hover { opacity:1; }
     .footer-credit { font-size:0.8rem; opacity:0.5; margin-bottom: 10px; }
-    .footer-copyright { font-size:0.8rem; opacity:0.5; } /* 新規追加 */
+    .footer-copyright { font-size:0.8rem; opacity:0.5; }
 
     /* Social Links */
     .social-links { display:flex; gap:20px; margin-top:40px; }
@@ -509,8 +532,8 @@
       .social-header { margin-top:15px; margin-left:0; }
       .about-img { justify-content: flex-start; }
       .about-img img { width:100%; height:auto; max-height:827px; }
-      .sponsor-item { width: 150px; height: 150px; }
-      .sponsor-img-container { width: 120px; height: 120px; }
+      .sponsors-grid { gap:40px; }
+      .sponsor-item { flex:0 1 250px; }
       
       /* タイムテーブルと会場マップのモバイル対応 - 新規追加 */
       .timetable-img-container {
@@ -535,14 +558,24 @@
       .odoriko-img {
         max-width: 100%;
       }
+      
+      /* More Artists コンテナのモバイル対応 - 新規追加 */
+      .more-artists-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .more-info-btn {
+        margin-left: 0;
+        margin-top: 15px;
+      }
     }
     @media (max-width:480px) {
       .hero-title { font-size:2rem; }
       .section-title { font-size:2rem; }
       .exhibition-gallery { grid-template-columns:1fr; }
       .contact-email { font-size:1.5rem; }
-      .sponsor-item { width: 120px; height: 120px; }
-      .sponsor-img-container { width: 100px; height: 100px; }
+      .sponsors-grid { flex-direction:column; gap:30px; }
+      .sponsor-item { flex:0 1 100%; max-width:200px; }
       .about { background-size: cover; }
       .participate { background-size: cover; }
       
@@ -565,7 +598,7 @@
         <div class="nav-right">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#timetable">Schedule</a></li> <!-- 新規追加 -->
+            <li><a href="#timetable">Schedule</a></li>
             <li><a href="#exhibition">Exhibition</a></li>
             <li><a href="#participate">Participate</a></li>
             <li><a href="#location">Location</a></li>
@@ -631,7 +664,7 @@
     </div>
   </section>
 
-  <!-- Timetable Section - 新規追加 -->
+  <!-- Timetable Section -->
   <section id="timetable" class="timetable">
     <div class="container">
       <h2 class="section-title">Event Schedule</h2>
@@ -677,6 +710,16 @@
               <span class="gallery-item-title">DULLSTONE・鈍石・EIN STEIN</span>
             </div>
           </div>
+        </div>
+        <!-- 追加: アーティスト情報とMore Infoボタン -->
+        <div class="more-artists-container">
+          <p class="more-artists-text">...and over 20 more artists, thinkers, and makers pushing boundaries...</p>
+          <a href="https://www.instagram.com/shuhari_berlin/" 
+             target="_blank" 
+             class="more-info-btn"
+             onclick="trackMoreInfoClick('exhibition_section')">
+            More Info
+          </a>
         </div>
       </div>
     </div>
@@ -788,7 +831,7 @@
     </div>
   </section>
 
-  <!-- Sponsors Section -->
+  <!-- Sponsors Section - 修正版 -->
   <section id="sponsors" class="sponsors">
     <div class="container">
       <h2 class="section-title">Our Sponsors</h2>
@@ -797,84 +840,75 @@
           We gratefully acknowledge the support of all our partners and sponsors, whose collaboration makes this festival possible.
         </p>
         
-        <!-- 全てのスポンサーロゴを単一のグリッドに -->
-        <div class="sponsors-grid">
-          <!-- Main Sponsors - 最上部に配置 -->
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
-              <img src="images/jdzb_logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary" loading="lazy"/>
+        <!-- Main Sponsors Group - トビタテと日独センター -->
+        <div class="sponsors-group">
+          <div class="sponsors-grid">
+            <div class="sponsor-item">
+              <img src="images/jdzb_logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary"/>
+              <p>Japanisch-Deutsches Zentrum Berlin</p>
             </div>
-            <p>JDZB</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
-              <img src="images/tobitate_logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create" loading="lazy"/>
+            <div class="sponsor-item">
+              <img src="images/tobitate_logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create"/>
+              <p>Tobitate! Study Abroad Japan</p>
             </div>
-            <p>Tobitate!</p>
           </div>
-          
-          <!-- 梅カテゴリ - アルファベット順 -->
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+        </div>
+        
+        <!-- 区切り線 - 透明に変更 -->
+        <div class="sponsors-divider"></div>
+        
+        <!-- 梅カテゴリグループ - アルファベット順 -->
+        <div class="sponsors-group">
+          <div class="sponsors-grid">
+            <div class="sponsor-item">
               <img src="images/sponsers/Global Japanese Tea Association.png" alt="Global Japanese Tea Association" loading="lazy"/>
+              <p>Global Japanese Tea Association</p>
             </div>
-            <p>Global Japanese Tea Association</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
-              <img src="images/sponsers/Kikkoman_Corporation.png" alt="Kikkoman Corporation" loading="lazy"/>
+            <div class="sponsor-item">
+              <img src="images/sponsers/Kikkoman_Corporation.jpg" alt="Kikkoman Corporation" loading="lazy"/>
+              <p>Kikkoman Corporation</p>
             </div>
-            <p>Kikkoman</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/MaroMonto, LLC.png" alt="MaroMonto, LLC" loading="lazy"/>
+              <p>MaroMonto, LLC</p>
             </div>
-            <p>MaroMonto</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/Mie Prefectural Tea Industry Council.png" alt="Mie Prefectural Tea Industry Council" loading="lazy"/>
+              <p>Mie Prefectural Tea Industry Council</p>
             </div>
-            <p>Mie Tea Industry Council</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/Otafuku Sause CO., LTD.png" alt="Otafuku Sause CO., LTD" loading="lazy"/>
+              <p>Otafuku Sause CO., LTD</p>
             </div>
-            <p>Otafuku</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/Riken Vitamin CO., LTD.png" alt="Riken Vitamin CO., LTD" loading="lazy"/>
+              <p>Riken Vitamin CO., LTD</p>
             </div>
-            <p>Riken Vitamin</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/YUAI Foundation.png" alt="YUAI Foundation" loading="lazy"/>
+              <p>YUAI Foundation</p>
             </div>
-            <p>YUAI Foundation</p>
           </div>
-          
-          <!-- 松カテゴリ - アルファベット順 -->
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+        </div>
+        
+        <!-- 区切り線 - 透明に変更 -->
+        <div class="sponsors-divider"></div>
+        
+        <!-- 松カテゴリグループ - アルファベット順 -->
+        <div class="sponsors-group">
+          <div class="sponsors-grid">
+            <div class="sponsor-item">
               <img src="images/sponsers/High School Future Lab.png" alt="High School Future Lab" loading="lazy"/>
+              <p>High School Future Lab</p>
             </div>
-            <p>High School Future Lab</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/Panter Studio Inc.png" alt="Panter Studio Inc" loading="lazy"/>
+              <p>Panter Studio Inc</p>
             </div>
-            <p>Panter Studio</p>
-          </div>
-          <div class="sponsor-item">
-            <div class="sponsor-img-container">
+            <div class="sponsor-item">
               <img src="images/sponsers/syonen project.png" alt="syonen project" loading="lazy"/>
+              <p>syonen project</p>
             </div>
-            <p>syonen project</p>
           </div>
         </div>
       </div>
@@ -888,14 +922,13 @@
       <div class="footer-text">© 2025 SHUHARI Berlin Festival. All rights reserved.</div>
       <div class="footer-links">
         <a href="#about">About</a>
-        <a href="#timetable">Schedule</a> <!-- 新規追加 -->
+        <a href="#timetable">Schedule</a>
         <a href="#exhibition">Exhibition</a>
         <a href="#participate">Participate</a>
         <a href="#location">Location</a>
         <a href="#sponsors">Sponsors</a>
       </div>
       <div class="footer-credit">Designed by the SHUHARI Team</div>
-      <!-- 著作権表示を追加 -->
       <div class="footer-copyright">&copy; 2025 Satoka Shibasaki</div>
     </div>
   </footer>
