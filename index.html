@@ -411,22 +411,14 @@
       font-size:1.2rem; margin-bottom:50px; max-width:800px;
       margin:0 auto 50px;
     }
-    .sponsor-category {
-      font-size: 1.8rem;
-      margin-top: 60px;
-      margin-bottom: 30px;
-      text-align: center;
-      position: relative;
-      font-weight: 700;
-      color: #333;
+    .sponsors-group {
+      margin-bottom: 60px;
     }
-    .sponsor-category::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 3px;
-      background: #000;
-      margin: 15px auto 0;
+    .sponsors-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+      margin: 60px 0;
     }
     .sponsors-grid {
       display:flex; justify-content:center; flex-wrap:wrap; gap:60px; margin-top:40px;
@@ -787,66 +779,75 @@
           We gratefully acknowledge the support of all our partners and sponsors, whose collaboration makes this festival possible.
         </p>
         
-        <!-- Main Sponsors -->
-        <h3 class="sponsor-category">Main Sponsors</h3>
-        <div class="sponsors-grid">
-          <div class="sponsor-item">
-            <img src="images/jdzb_logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary"/>
-            <p>Japanisch-Deutsches Zentrum Berlin</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/tobitate_logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create"/>
-            <p>Tobitate! Study Abroad Japan</p>
-          </div>
-        </div>
-        
-        <!-- 梅カテゴリ -->
-        <h3 class="sponsor-category">Ume Sponsors</h3>
-        <div class="sponsors-grid">
-          <div class="sponsor-item">
-            <img src="images/sponsors/Global Japanese Tea Association.png" alt="Global Japanese Tea Association" loading="lazy"/>
-            <p>Global Japanese Tea Association</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/Kikkoman Corporation.jpg" alt="Kikkoman Corporation" loading="lazy"/>
-            <p>Kikkoman Corporation</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/MaroMonto, LLC.png" alt="MaroMonto, LLC" loading="lazy"/>
-            <p>MaroMonto, LLC</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/Mie Prefectural Tea Industry Council.png" alt="Mie Prefectural Tea Industry Council" loading="lazy"/>
-            <p>Mie Prefectural Tea Industry Council</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/Otafuku Sause CO., LTD.png" alt="Otafuku Sause CO., LTD" loading="lazy"/>
-            <p>Otafuku Sause CO., LTD</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/Riken Vitamin CO., LTD.png" alt="Riken Vitamin CO., LTD" loading="lazy"/>
-            <p>Riken Vitamin CO., LTD</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/YUAI Foundation.png" alt="YUAI Foundation" loading="lazy"/>
-            <p>YUAI Foundation</p>
+        <!-- Main Sponsors Group - トビタテと日独センター -->
+        <div class="sponsors-group">
+          <div class="sponsors-grid">
+            <div class="sponsor-item">
+              <img src="images/jdzb_logo.png" alt="JDZB - Japanese-German Center Berlin 40 Years Anniversary"/>
+              <p>Japanisch-Deutsches Zentrum Berlin</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/tobitate_logo.png" alt="Tobitate! Study Abroad Japan - Challenge Connect Co-create"/>
+              <p>Tobitate! Study Abroad Japan</p>
+            </div>
           </div>
         </div>
         
-        <!-- 松カテゴリ -->
-        <h3 class="sponsor-category">Matsu Sponsors</h3>
-        <div class="sponsors-grid">
-          <div class="sponsor-item">
-            <img src="images/sponsors/High School Future Lab.png" alt="High School Future Lab" loading="lazy"/>
-            <p>High School Future Lab</p>
+        <!-- 区切り線 -->
+        <div class="sponsors-divider"></div>
+        
+        <!-- 梅カテゴリグループ - アルファベット順 -->
+        <div class="sponsors-group">
+          <div class="sponsors-grid">
+            <div class="sponsor-item">
+              <img src="images/sponsers/Global Japanese Tea Association.png" alt="Global Japanese Tea Association" loading="lazy"/>
+              <p>Global Japanese Tea Association</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/K.png" alt="Kikkoman Corporation" loading="lazy"/>
+              <p>Kikkoman Corporation</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/MaroMonto, LLC.png" alt="MaroMonto, LLC" loading="lazy"/>
+              <p>MaroMonto, LLC</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/Mie Prefectural Tea Industry Council.png" alt="Mie Prefectural Tea Industry Council" loading="lazy"/>
+              <p>Mie Prefectural Tea Industry Council</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/Otafuku Sause CO., LTD.png" alt="Otafuku Sause CO., LTD" loading="lazy"/>
+              <p>Otafuku Sause CO., LTD</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/Riken Vitamin CO., LTD.png" alt="Riken Vitamin CO., LTD" loading="lazy"/>
+              <p>Riken Vitamin CO., LTD</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/YUAI Foundation.png" alt="YUAI Foundation" loading="lazy"/>
+              <p>YUAI Foundation</p>
+            </div>
           </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/Panter Studio Inc.png" alt="Panter Studio Inc" loading="lazy"/>
-            <p>Panter Studio Inc</p>
-          </div>
-          <div class="sponsor-item">
-            <img src="images/sponsors/syonen project.png" alt="syonen project" loading="lazy"/>
-            <p>syonen project</p>
+        </div>
+        
+        <!-- 区切り線 -->
+        <div class="sponsors-divider"></div>
+        
+        <!-- 松カテゴリグループ - アルファベット順 -->
+        <div class="sponsors-group">
+          <div class="sponsors-grid">
+            <div class="sponsor-item">
+              <img src="images/sponsers/High School Future Lab.png" alt="High School Future Lab" loading="lazy"/>
+              <p>High School Future Lab</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/Panter Studio Inc.png" alt="Panter Studio Inc" loading="lazy"/>
+              <p>Panter Studio Inc</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsers/syonen project.png" alt="syonen project" loading="lazy"/>
+              <p>syonen project</p>
+            </div>
           </div>
         </div>
       </div>
