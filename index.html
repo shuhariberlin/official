@@ -236,6 +236,37 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
+    /* Timetable Section - 新規追加 */
+    .timetable {
+      padding:100px 0; position:relative; overflow:hidden;
+      background-image: url('images/pngdata-25-min.png');
+      background-size: contain; background-position: center; background-repeat: no-repeat;
+    }
+    .timetable::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.9); z-index: 1;
+    }
+    .timetable .container { position: relative; z-index: 2; }
+    .timetable-content {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .timetable-content p {
+      margin-bottom: 30px; 
+      font-size: 1.1rem;
+    }
+    .timetable-img-container {
+      margin: 30px auto;
+      max-width: 100%;
+      text-align: center;
+    }
+    .timetable-img {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
     /* Exhibition Section */
     .exhibition { padding:100px 0; position:relative; }
     .exhibition-content { display:flex; flex-direction:column; align-items:flex-start; }
@@ -301,6 +332,22 @@
     }
     .map-container iframe {
       position:absolute; top:0; left:0; width:100%; height:100%; border:0;
+    }
+    /* 会場マップスタイル - 新規追加 */
+    .venue-map-container {
+      margin: 30px 0;
+      width: 100%;
+    }
+    .venue-map-container h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .venue-map-img {
+      width: 100%;
+      height: auto;
+      max-width: 1232px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     /* Contact Section */
@@ -421,6 +468,25 @@
       .about-img img { width:100%; height:auto; max-height:827px; }
       .sponsors-grid { gap:40px; }
       .sponsor-item { flex:0 1 250px; }
+      
+      /* タイムテーブルと会場マップのモバイル対応 - 新規追加 */
+      .timetable-img-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .timetable-img {
+        max-width: none;
+        width: 1000px; /* モバイルでも詳細が見えるようにする */
+      }
+      
+      .venue-map-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .venue-map-img {
+        max-width: none;
+        width: 800px; /* モバイルでも詳細が見えるようにする */
+      }
     }
     @media (max-width:480px) {
       .hero-title { font-size:2rem; }
@@ -431,6 +497,14 @@
       .sponsor-item { flex:0 1 100%; max-width:200px; }
       .about { background-size: cover; }
       .participate { background-size: cover; }
+      
+      /* タイムテーブルと会場マップのさらに小さなスクリーン対応 - 新規追加 */
+      .timetable-img {
+        width: 800px; /* さらに小さいデバイス用に調整 */
+      }
+      .venue-map-img {
+        width: 600px; /* さらに小さいデバイス用に調整 */
+      }
     }
   </style>
 </head>
@@ -443,6 +517,7 @@
         <div class="nav-right">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#timetable">Schedule</a></li> <!-- 新規追加 -->
             <li><a href="#exhibition">Exhibition</a></li>
             <li><a href="#participate">Participate</a></li>
             <li><a href="#location">Location</a></li>
@@ -503,6 +578,23 @@
         </div>
         <div class="about-img">
           <img src="images/logo.jpg" alt="Shuhari Festival Logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timetable Section - 新規追加 -->
+  <section id="timetable" class="timetable">
+    <div class="container">
+      <h2 class="section-title">Event Schedule</h2>
+      <div class="timetable-content content">
+        <p>
+          Explore our full day program featuring workshops, performances, and interactive sessions
+          from 10:00 to 19:00, followed by a closing party. The schedule includes traditional Japanese
+          tea ceremonies, dance performances, storytelling, and group discussions.
+        </p>
+        <div class="timetable-img-container">
+          <img src="images/timetable.jpg" alt="SHUHARI Berlin Festival 2025 Event Schedule" class="timetable-img" loading="lazy" />
         </div>
       </div>
     </div>
@@ -586,6 +678,13 @@
             The Japanese-German Center Berlin (JDZB) is a bilateral institution that promotes exchange and understanding between Japan and Germany through cultural events, academic programs, and artistic exhibitions.
           </p>
         </div>
+        
+        <!-- 会場マップ追加 -->
+        <div class="venue-map-container">
+          <h3>Venue Map</h3>
+          <img src="images/map.jpg" alt="JDZB Venue Map - Room Layout" class="venue-map-img" loading="lazy" />
+        </div>
+        
         <div class="location-map">
           <div class="map-container">
             <iframe
@@ -666,6 +765,7 @@
       <div class="footer-text">© 2025 SHUHARI Berlin Festival. All rights reserved.</div>
       <div class="footer-links">
         <a href="#about">About</a>
+        <a href="#timetable">Schedule</a> <!-- 新規追加 -->
         <a href="#exhibition">Exhibition</a>
         <a href="#participate">Participate</a>
         <a href="#location">Location</a>
