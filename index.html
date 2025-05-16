@@ -73,6 +73,15 @@
       });
       console.log('Register button clicked:', buttonLocation);
     }
+    
+    // More Info button tracking - 新規追加
+    function trackMoreInfoClick(buttonLocation) {
+      gtag('event', 'more_info_button_click', {
+        'button_location': buttonLocation,
+        'timestamp': new Date().toISOString()
+      });
+      console.log('More Info button clicked:', buttonLocation);
+    }
   </script>
 
   <style>
@@ -291,6 +300,38 @@
     .gallery-item:hover .gallery-item-overlay { opacity:1; }
     .gallery-item-title {
       color:var(--text-light); font-size:1.2rem; font-weight:700;
+    }
+    
+    /* 新規追加: More Artists セクションのスタイル */
+    .more-artists-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      width: 100%;
+      padding: 20px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    .more-artists-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      flex: 1;
+    }
+    .more-info-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: transform var(--transition), box-shadow var(--transition);
+      margin-left: 15px;
+    }
+    .more-info-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background: #222;
     }
 
     /* Participate Section */
@@ -517,6 +558,16 @@
       .odoriko-img {
         max-width: 100%;
       }
+      
+      /* More Artists コンテナのモバイル対応 - 新規追加 */
+      .more-artists-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .more-info-btn {
+        margin-left: 0;
+        margin-top: 15px;
+      }
     }
     @media (max-width:480px) {
       .hero-title { font-size:2rem; }
@@ -613,7 +664,7 @@
     </div>
   </section>
 
-  <!-- Timetable Section - 新規追加 -->
+  <!-- Timetable Section -->
   <section id="timetable" class="timetable">
     <div class="container">
       <h2 class="section-title">Event Schedule</h2>
@@ -630,7 +681,7 @@
     </div>
   </section>
 
-  <!-- Exhibition Section -->
+  <!-- Exhibition Section - 更新版 -->
   <section id="exhibition" class="exhibition">
     <div class="container">
       <h2 class="section-title">Exhibition</h2>
@@ -659,6 +710,16 @@
               <span class="gallery-item-title">DULLSTONE・鈍石・EIN STEIN</span>
             </div>
           </div>
+        </div>
+        <!-- 追加: アーティスト情報とMore Infoボタン -->
+        <div class="more-artists-container">
+          <p class="more-artists-text">...and over 20 more artists, thinkers, and makers pushing boundaries...</p>
+          <a href="https://www.instagram.com/shuhari_berlin/" 
+             target="_blank" 
+             class="more-info-btn"
+             onclick="trackMoreInfoClick('exhibition_section')">
+            More Info
+          </a>
         </div>
       </div>
     </div>
@@ -770,7 +831,7 @@
     </div>
   </section>
 
-  <!-- Sponsors Section -->
+  <!-- Sponsors Section - 修正版 -->
   <section id="sponsors" class="sponsors">
     <div class="container">
       <h2 class="section-title">Our Sponsors</h2>
@@ -796,7 +857,7 @@
         <!-- 区切り線 -->
         <div class="sponsors-divider"></div>
         
-        <!-- 梅カテゴリグループ - アルファベット順 -->
+        <!-- 梅カテゴリグループ - アルファベット順 - Kikkomanのロゴ修正 -->
         <div class="sponsors-group">
           <div class="sponsors-grid">
             <div class="sponsor-item">
@@ -804,7 +865,7 @@
               <p>Global Japanese Tea Association</p>
             </div>
             <div class="sponsor-item">
-              <img src="images/sponsers/K.png" alt="Kikkoman Corporation" loading="lazy"/>
+              <img src="images/sponsers/Kikkoman_Corporation.png" alt="Kikkoman Corporation" loading="lazy"/>
               <p>Kikkoman Corporation</p>
             </div>
             <div class="sponsor-item">
@@ -833,7 +894,7 @@
         <!-- 区切り線 -->
         <div class="sponsors-divider"></div>
         
-        <!-- 松カテゴリグループ - アルファベット順 -->
+        <!-- 松カテゴリグループ - アルファベット順 - High School Future Labの確認済み -->
         <div class="sponsors-group">
           <div class="sponsors-grid">
             <div class="sponsor-item">
