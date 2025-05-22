@@ -98,6 +98,7 @@
       --nav-height: 70px;
       --nav-height-mobile: 60px;
       --nav-bg-color: #800000;
+      --alert-red: #d32f2f;
     }
     *, *::before, *::after {
       box-sizing: border-box;
@@ -274,6 +275,38 @@
       max-width: 100%;
       height: auto;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Capacity Notice - 新規追加 */
+    .capacity-notice {
+      color: var(--alert-red);
+      font-weight: 700;
+      margin: 25px 0;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, 
+        rgba(211, 47, 47, 0.08) 0%, 
+        rgba(211, 47, 47, 0.04) 100%);
+      border-left: 4px solid var(--alert-red);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(211, 47, 47, 0.1);
+      position: relative;
+    }
+    .capacity-notice::before {
+      content: "⚠️";
+      position: absolute;
+      left: -2px;
+      top: -8px;
+      font-size: 1.2rem;
+      background: white;
+      padding: 2px;
+      border-radius: 50%;
+    }
+    .capacity-notice-jp {
+      font-size: 0.9rem;
+      margin-top: 12px;
+      line-height: 1.5;
+      font-weight: 600;
+      opacity: 0.95;
     }
 
     /* Exhibition Section */
@@ -535,6 +568,17 @@
       .sponsors-grid { gap:40px; }
       .sponsor-item { flex:0 1 250px; }
       
+      /* Capacity Notice モバイル対応 - 新規追加 */
+      .capacity-notice {
+        margin: 20px 0;
+        padding: 14px 16px;
+        font-size: 0.9rem;
+      }
+      .capacity-notice-jp {
+        font-size: 0.8rem;
+        margin-top: 8px;
+      }
+      
       /* タイムテーブルと会場マップのモバイル対応 - 新規追加 */
       .timetable-img-container {
         overflow-x: auto;
@@ -578,6 +622,15 @@
       .sponsor-item { flex:0 1 100%; max-width:200px; }
       .about { background-size: cover; }
       .participate { background-size: cover; }
+      
+      /* Capacity Notice 小画面対応 - 新規追加 */
+      .capacity-notice {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+      }
+      .capacity-notice-jp {
+        font-size: 0.75rem;
+      }
       
       /* タイムテーブルと会場マップのさらに小さなスクリーン対応 - 新規追加 */
       .timetable-img {
@@ -674,6 +727,15 @@
           from 10:00 to 19:00, followed by a closing party. The schedule includes traditional Japanese
           tea ceremonies, dance performances, storytelling, and group discussions.
         </p>
+        
+        <!-- 入場制限告知 - 新規追加 -->
+        <div class="capacity-notice" role="alert">
+          <strong>Due to capacity issues at the venue, admission may be restricted at busier hours</strong>
+          <div class="capacity-notice-jp">
+            多くのお客様にご興味をお寄せいただいているため、会場の収容人数の都合により、入場制限の措置をとらせていただく場合がございます。予めご了承ください。（5/22追記）
+          </div>
+        </div>
+        
         <div class="timetable-img-container">
           <img src="images/timetable.jpg" alt="SHUHARI Berlin Festival 2025 Event Schedule" class="timetable-img" loading="lazy" />
         </div>
