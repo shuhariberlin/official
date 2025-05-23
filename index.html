@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Free entry May 24, 2025 at JDZB – a creative festival with 40+ artists. Register now!">
   <meta name="twitter:image"       content="https://shuhariberlin.github.io/official/images/og-image.jpg">
 
-  <!-- Event Structured Data (JSON-LD) -->
+  <!-- Event Structured Data (JSON-LD) - Enhanced -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,7 +53,16 @@
       "price": "0",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock"
-    }
+    },
+    "relatedLink": [
+      {
+        "@type": "MobileApplication",
+        "name": "SHUHARI Berlin",
+        "operatingSystem": "iOS",
+        "applicationCategory": "LifestyleApplication",
+        "url": "https://apps.apple.com/jp/app/shuhari-berlin/id6745906818?l=en-US"
+      }
+    ]
   }
   </script>
 
@@ -83,13 +92,24 @@
       console.log('More Info button clicked:', buttonLocation);
     }
 
-    // Venue Map Modal tracking - NEW
+    // Venue Map Modal tracking
     function trackVenueMapClick() {
       gtag('event', 'venue_map_enlarge', {
         'interaction_type': 'image_modal_open',
         'timestamp': new Date().toISOString()
       });
       console.log('Venue map enlarged');
+    }
+
+    // App Store tracking - NEW
+    function trackAppStoreClick() {
+      gtag('event', 'app_store_click', {
+        'app_name': 'shuhari_berlin',
+        'platform': 'ios',
+        'source': 'festival_website',
+        'timestamp': new Date().toISOString()
+      });
+      console.log('App Store button clicked');
     }
   </script>
 
@@ -127,7 +147,7 @@
       margin: 0 auto; padding: 0 20px;
     }
 
-    /* Navigation */
+    /* Navigation - Enhanced */
     nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; position: absolute; width: 100%; z-index: 100;
@@ -432,7 +452,7 @@
       position:absolute; top:0; left:0; width:100%; height:100%; border:0;
     }
 
-    /* Venue Map Enhancement - NEW */
+    /* Venue Map Enhancement */
     .venue-map-container {
       margin: 30px 0;
       width: 100%;
@@ -481,7 +501,7 @@
       opacity: 1;
     }
 
-    /* Image Modal - NEW */
+    /* Image Modal */
     .image-modal {
       display: none;
       position: fixed;
@@ -551,6 +571,90 @@
     @keyframes modalFadeIn {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Mobile App Section - NEW */
+    .mobile-app {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      background-image: url('images/pngdata-25-min.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .mobile-app::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1;
+    }
+    .mobile-app .container {
+      position: relative;
+      z-index: 2;
+    }
+    .mobile-app-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .mobile-app-description {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .app-download-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .app-store-badge {
+      height: 60px;
+      width: auto;
+      transition: transform var(--transition), box-shadow var(--transition);
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    }
+    .app-store-badge:hover {
+      transform: translateY(-3px) scale(1.05);
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+    }
+    .app-store-badge:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+    }
+    .app-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      text-align: left;
+    }
+    .app-feature {
+      padding: 20px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    .app-feature h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .app-feature p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #666;
+    }
+    .app-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: block;
     }
 
     /* Contact Section */
@@ -727,7 +831,7 @@
         margin-top: 15px;
       }
 
-      /* Image Modal モバイル対応 - NEW */
+      /* Image Modal モバイル対応 */
       .image-modal-content {
         max-width: 95vw;
         max-height: 95vh;
@@ -742,6 +846,15 @@
         font-size: 0.7rem;
         padding: 3px 8px;
       }
+
+      /* Mobile App Section モバイル対応 - NEW */
+      .app-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .app-store-badge {
+        height: 50px;
+      }
     }
     @media (max-width:480px) {
       .hero-title { font-size:2rem; }
@@ -752,6 +865,7 @@
       .sponsor-item { flex:0 1 100%; max-width:200px; }
       .about { background-size: cover; }
       .participate { background-size: cover; }
+      .mobile-app { background-size: cover; }
       
       /* Capacity Notice 小画面対応 */
       .capacity-notice {
@@ -770,7 +884,7 @@
         width: 600px;
       }
 
-      /* Image Zoom Hint 小画面対応 - NEW */
+      /* Image Zoom Hint 小画面対応 */
       .image-zoom-hint {
         position: static;
         display: block;
@@ -780,11 +894,19 @@
         color: #666;
         opacity: 1;
       }
+
+      /* App Store Badge 小画面対応 - NEW */
+      .app-store-badge {
+        height: 45px;
+      }
+      .mobile-app-description {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Navigation - Enhanced -->
   <nav>
     <div class="container">
       <div class="nav-container">
@@ -796,6 +918,7 @@
             <li><a href="#exhibition">Exhibition</a></li>
             <li><a href="#participate">Participate</a></li>
             <li><a href="#location">Location</a></li>
+            <li><a href="#mobile-app">App</a></li>
             <li><a href="#sponsors">Sponsors</a></li>
             <li>
               <a href="https://rausgegangen.de/events/shuhari-berlin-festival-2025-1/"
@@ -977,7 +1100,7 @@
           </p>
         </div>
         
-        <!-- 会場マップ - 拡大機能付き ENHANCED -->
+        <!-- 会場マップ - 拡大機能付き -->
         <div class="venue-map-container">
           <h3>Venue Map</h3>
           <div class="venue-map-wrapper">
@@ -1006,6 +1129,58 @@
               title="Map of Japanisch-Deutsches Zentrum Berlin"
               aria-label="Map showing Japanisch-Deutsches Zentrum Berlin">
             </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile App Section - NEW -->
+  <section id="mobile-app" class="mobile-app">
+    <div class="container">
+      <h2 class="section-title">SHUHARI Mobile App</h2>
+      <div class="mobile-app-content content">
+        <p class="mobile-app-description">
+          Experience SHUHARI beyond the festival with our official mobile app. Get exclusive content, connect with artists, and stay updated with the latest news from the SHUHARI community.
+        </p>
+        
+        <div class="app-download-section">
+          <a href="https://apps.apple.com/jp/app/shuhari-berlin/id6745906818?l=en-US"
+             target="_blank"
+             rel="noopener noreferrer"
+             onclick="trackAppStoreClick()"
+             aria-label="Download SHUHARI Berlin app from the App Store">
+            <svg class="app-store-badge" viewBox="0 0 120 40" role="img" aria-label="Download on the App Store">
+              <rect width="120" height="40" rx="8" fill="#000000"/>
+              <g fill="#ffffff">
+                <path d="M24.769 20.301c-.047-5.142 4.199-7.613 4.396-7.738-2.395-3.506-6.129-3.984-7.449-4.033-3.17-.328-6.186 1.867-7.795 1.867-1.625 0-4.137-1.82-6.797-1.771-3.495.05-6.718 2.03-8.515 5.16-3.627 6.294-.929 15.618 2.608 20.729 1.734 2.502 3.805 5.314 6.517 5.214 2.613-.105 3.6-1.689 6.762-1.689 3.146 0 4.084 1.689 6.844 1.634 2.828-.05 4.646-2.539 6.379-5.041 2.003-2.895 2.825-5.698 2.875-5.842-.062-.029-5.514-2.115-5.561-8.39l-.264-.099zm-4.541-13.438c1.44-1.746 2.413-4.167 2.148-6.584-2.078.084-4.598 1.385-6.088 3.131-1.341 1.547-2.514 4.019-2.199 6.387 2.325.18 4.699-1.183 6.139-2.934z"/>
+                <path d="M50.5 27.875h-2.26l-1.24-3.906h-4.324l-1.18 3.906h-2.201l4.284-13.308h2.637l4.284 13.308zm-3.89-5.549l-1.12-3.451c-.119-.355-.342-1.191-.67-2.508h-.04c-.131.566-.342 1.402-.632 2.508l-1.1 3.451h3.562z"/>
+                <path d="M59.431 28.142c-1.405 0-2.654-.467-3.746-1.4s-1.637-2.15-1.637-3.65c0-1.54.533-2.764 1.598-3.674 1.065-.91 2.406-1.365 4.021-1.365 1.381 0 2.522.467 3.422 1.4v5.391c0 2.133-.471 3.772-1.414 4.916-.943 1.145-2.244 1.717-3.902 1.717zm-.238-1.4c.906 0 1.637-.355 2.193-1.064.556-.709.834-1.687.834-2.934v-.355c-.238-.473-.564-.838-.977-1.096-.414-.258-.895-.387-1.445-.387-.906 0-1.641.334-2.205 1.002-.564.668-.846 1.56-.846 2.676 0 1.097.275 1.961.824 2.591.549.631 1.295.946 2.238.946l.384.021z"/>
+                <path d="M70.297 28.142c-1.405 0-2.654-.467-3.746-1.4s-1.637-2.15-1.637-3.65c0-1.54.533-2.764 1.598-3.674 1.065-.91 2.406-1.365 4.021-1.365 1.381 0 2.522.467 3.422 1.4v5.391c0 2.133-.471 3.772-1.414 4.916-.943 1.145-2.244 1.717-3.902 1.717zm-.238-1.4c.906 0 1.637-.355 2.193-1.064.556-.709.834-1.687.834-2.934v-.355c-.238-.473-.564-.838-.977-1.096-.414-.258-.895-.387-1.445-.387-.906 0-1.641.334-2.205 1.002-.564.668-.846 1.56-.846 2.676 0 1.097.275 1.961.824 2.591.549.631 1.295.946 2.238.946l.384.021z"/>
+              </g>
+              <g fill="#ffffff" font-family="SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif">
+                <text x="40" y="12" font-size="9" font-weight="400">Download on the</text>
+                <text x="40" y="26" font-size="17" font-weight="600">App Store</text>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <div class="app-features">
+          <div class="app-feature">
+            <span class="app-icon">🎨</span>
+            <h4>Artist Profiles</h4>
+            <p>Discover detailed profiles of all festival artists, their works, and creative processes.</p>
+          </div>
+          <div class="app-feature">
+            <span class="app-icon">📅</span>
+            <h4>Interactive Schedule</h4>
+            <p>Plan your festival experience with our interactive schedule and personalized reminders.</p>
+          </div>
+          <div class="app-feature">
+            <span class="app-icon">🌐</span>
+            <h4>Community Hub</h4>
+            <p>Connect with fellow creatives and stay updated with the latest SHUHARI news and events.</p>
           </div>
         </div>
       </div>
@@ -1139,7 +1314,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer - Enhanced -->
   <footer>
     <div class="container">
       <div class="footer-logo">SHUHARI</div>
@@ -1150,6 +1325,7 @@
         <a href="#exhibition">Exhibition</a>
         <a href="#participate">Participate</a>
         <a href="#location">Location</a>
+        <a href="#mobile-app">App</a>
         <a href="#sponsors">Sponsors</a>
       </div>
       <div class="footer-credit">Designed by the SHUHARI Team</div>
@@ -1157,7 +1333,7 @@
     </div>
   </footer>
 
-  <!-- 画像拡大モーダル - NEW -->
+  <!-- 画像拡大モーダル -->
   <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="image-modal-overlay" onclick="closeImageModal()"></div>
     <div class="image-modal-content">
@@ -1207,7 +1383,7 @@
       }
     });
 
-    // 画像モーダル制御関数 - NEW
+    // 画像モーダル制御関数
     function openImageModal(imgElement) {
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImage');
