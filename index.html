@@ -54,6 +54,16 @@
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock"
     },
+    "subEvents": [
+      {
+        "@type": "Event",
+        "name": "Teeraum - Japanese Tea Experience",
+        "description": "Authentic Japanese tea ceremony experience with premium teas and cultural education",
+        "url": "https://ychatchy.github.io/teeraum",
+        "startDate": "2025-05-24T10:00:00+02:00",
+        "endDate": "2025-05-24T19:00:00+02:00"
+      }
+    ],
     "relatedLink": [
       {
         "@type": "MobileApplication",
@@ -101,7 +111,7 @@
       console.log('Venue map enlarged');
     }
 
-    // App Store tracking - NEW
+    // App Store tracking
     function trackAppStoreClick() {
       gtag('event', 'app_store_click', {
         'app_name': 'shuhari_berlin',
@@ -110,6 +120,17 @@
         'timestamp': new Date().toISOString()
       });
       console.log('App Store button clicked');
+    }
+
+    // Teeraum tracking - NEW
+    function trackTeeraumClick(linkType) {
+      gtag('event', 'teeraum_link_click', {
+        'link_type': linkType, // 'menu' or 'info'
+        'section': 'food_drinks',
+        'destination': linkType === 'menu' ? 'speisekarte' : 'teeraum',
+        'timestamp': new Date().toISOString()
+      });
+      console.log('Teeraum link clicked:', linkType);
     }
   </script>
 
@@ -573,7 +594,7 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    /* Mobile App Section - NEW */
+    /* Mobile App Section */
     .mobile-app {
       padding: 100px 0;
       position: relative;
@@ -655,6 +676,130 @@
       font-size: 2rem;
       margin-bottom: 15px;
       display: block;
+    }
+
+    /* Food & Drinks Section - NEW */
+    .food-drinks {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      background-image: url('images/pngdata-25-min.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .food-drinks::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1;
+    }
+    .food-drinks .container {
+      position: relative;
+      z-index: 2;
+    }
+    .food-drinks-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .food-drinks-intro {
+      font-size: 1.2rem;
+      margin-bottom: 50px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .teeraum-section {
+      background: rgba(255,255,255,0.8);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: 30px;
+    }
+    .subsection-title {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      position: relative;
+    }
+    .subsection-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+      margin: 15px auto 0;
+    }
+    .teeraum-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .teeraum-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .teeraum-link-card {
+      background: rgba(255,255,255,0.9);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-align: center;
+    }
+    .teeraum-link-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .teeraum-link-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .teeraum-link-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .teeraum-link-desc {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .external-link {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color var(--transition), transform var(--transition);
+      text-decoration: none;
+    }
+    .external-link:hover {
+      background: #e6295a;
+      transform: translateY(-2px);
+    }
+    .external-link:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    .external-link::after {
+      content: ' ↗';
+      font-size: 0.8rem;
+      margin-left: 5px;
+      opacity: 0.8;
     }
 
     /* Contact Section */
@@ -847,13 +992,26 @@
         padding: 3px 8px;
       }
 
-      /* Mobile App Section モバイル対応 - NEW */
+      /* Mobile App Section モバイル対応 */
       .app-features {
         grid-template-columns: 1fr;
         gap: 20px;
       }
       .app-store-badge {
         height: 50px;
+      }
+
+      /* Food & Drinks Section モバイル対応 - NEW */
+      .teeraum-links {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .teeraum-section {
+        padding: 25px;
+        margin-top: 20px;
+      }
+      .subsection-title {
+        font-size: 1.5rem;
       }
     }
     @media (max-width:480px) {
@@ -866,6 +1024,7 @@
       .about { background-size: cover; }
       .participate { background-size: cover; }
       .mobile-app { background-size: cover; }
+      .food-drinks { background-size: cover; }
       
       /* Capacity Notice 小画面対応 */
       .capacity-notice {
@@ -895,12 +1054,26 @@
         opacity: 1;
       }
 
-      /* App Store Badge 小画面対応 - NEW */
+      /* App Store Badge 小画面対応 */
       .app-store-badge {
         height: 45px;
       }
       .mobile-app-description {
         font-size: 1.1rem;
+      }
+
+      /* Food & Drinks 小画面対応 - NEW */
+      .food-drinks-intro {
+        font-size: 1.1rem;
+      }
+      .teeraum-section {
+        padding: 20px;
+      }
+      .subsection-title {
+        font-size: 1.4rem;
+      }
+      .teeraum-link-card {
+        padding: 20px;
       }
     }
   </style>
@@ -918,6 +1091,7 @@
             <li><a href="#exhibition">Exhibition</a></li>
             <li><a href="#participate">Participate</a></li>
             <li><a href="#location">Location</a></li>
+            <li><a href="#food-drinks">Food & Drinks</a></li>
             <li><a href="#mobile-app">App</a></li>
             <li><a href="#sponsors">Sponsors</a></li>
             <li>
@@ -1135,7 +1309,67 @@
     </div>
   </section>
 
-  <!-- Mobile App Section - NEW -->
+  <!-- Food & Drinks Section - NEW -->
+  <section id="food-drinks" class="food-drinks">
+    <div class="container">
+      <h2 class="section-title">Food & Drinks</h2>
+      <div class="food-drinks-content content">
+        <p class="food-drinks-intro">
+          Immerse yourself in the authentic flavors and traditions that accompany creative expression. 
+          Our food and drink offerings provide the perfect complement to your festival experience.
+        </p>
+        
+        <div class="teeraum-section">
+          <h3 class="subsection-title">Teeraum</h3>
+          <p class="teeraum-description">
+            Step into our dedicated Japanese tea space, where tradition meets mindfulness. 
+            The Teeraum offers an authentic tea ceremony experience, featuring carefully selected 
+            premium Japanese teas and traditional preparation methods. Discover the profound 
+            connection between tea culture and creative expression in this serene environment 
+            designed for contemplation and cultural exchange.
+          </p>
+          
+          <div class="teeraum-links">
+            <div class="teeraum-link-card">
+              <span class="teeraum-link-icon">🍵</span>
+              <h4 class="teeraum-link-title">Tea Menu</h4>
+              <p class="teeraum-link-desc">
+                Explore our curated selection of premium Japanese teas, 
+                from delicate sencha to robust matcha preparations.
+              </p>
+              <a href="https://ychatchy.github.io/speisekarte" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="external-link"
+                 onclick="trackTeeraumClick('menu')"
+                 aria-label="View Japanese tea menu (opens in new tab)">
+                View Menu
+              </a>
+            </div>
+            
+            <div class="teeraum-link-card">
+              <span class="teeraum-link-icon">📚</span>
+              <h4 class="teeraum-link-title">Tea Culture Guide</h4>
+              <p class="teeraum-link-desc">
+                Learn about the rich history and philosophy behind Japanese tea culture 
+                and ceremonial practices.
+              </p>
+              <a href="https://ychatchy.github.io/teeraum" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="external-link"
+                 onclick="trackTeeraumClick('info')"
+                 aria-label="Learn about Japanese tea culture (opens in new tab)">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile App Section - Enhanced -->
   <section id="mobile-app" class="mobile-app">
     <div class="container">
       <h2 class="section-title">SHUHARI Mobile App</h2>
@@ -1150,7 +1384,7 @@
              rel="noopener noreferrer"
              onclick="trackAppStoreClick()"
              aria-label="Download SHUHARI Berlin app from the App Store">
-            <img src="images/app_store_logo.png" 
+            <img src="images/app_store_logo.jpg" 
                  alt="Download on the App Store" 
                  class="app-store-badge"
                  loading="lazy" />
@@ -1316,6 +1550,7 @@
         <a href="#exhibition">Exhibition</a>
         <a href="#participate">Participate</a>
         <a href="#location">Location</a>
+        <a href="#food-drinks">Food & Drinks</a>
         <a href="#mobile-app">App</a>
         <a href="#sponsors">Sponsors</a>
       </div>
