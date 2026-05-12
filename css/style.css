@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap');
+
+/* 変数定義：守破離のテーマカラー */
+:root {
+    --shu-blue: #3F51B5;
+    --ha-red: #D32F2F;
+    --ri-green: #4CAF50;
+}
+
+/* 1. 基本設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #fdfdfd;
+    /* 全体の文字色を純粋な黒にしてコントラストを最大化 */
+    color: #000000; 
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 2. 背景固定（Heroセクション用） */
+.fixed-bg-container {
+    position: fixed;
+    inset: 0;
+    z-index: -10; /* 最背面に配置 */
+    width: 100%;
+    height: 100vh;
+}
+
+.fixed-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fixed-bg-mask {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); /* マスクを薄く設定 */
+}
+
+/* 3. 各セクションの構造（断層防止） */
+#hero {
+    min-height: 100vh;
+    background: transparent; /* 背景画像を見せるために透明 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff; /* Hero内の文字は白 */
+}
+
+/* Heroの文字を背景画像に対してくっきりさせる */
+/*#hero h1, #hero p, #hero div {
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}*/
+
+/* Vision以降のセクション：背景色を白で固定して断層を防ぐ */
+section:not(#hero) {
+    position: relative;
+    z-index: 10;
+    background-color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* 4. レイアウト・装飾 */
+.max-w-7xl {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid-line-b { border-bottom: 1px solid #000000; }
+.grid-line-r { border-right: 1px solid #000000; }
+
+/* 5. アーティストカード（視認性向上版） */
+.artist-card {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+/* カード内の文字色設定 */
+.artist-card {
+    position: relative;
+    background-color: #ffffff;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+/* ★画像セクションのスタイル★ */
+.artist-img-container {
+    overflow: hidden;
+    /* ホバー時にテキストが見やすくなるよう、画像エリアにも透過をかける */
+    position: relative;
+}
+
+.artist-img-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0); /* 通常時は透明 */
+    transition: background-color 0.5s;
+}
+
+.artist-card:hover .artist-img-container::after {
+    /* ホバー時は白っぽい透過をかけて、画像の色味を少し抑える（お好みで調整） */
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* ★画像自体のスタイル★ */
+.artist-main-img {
+    opacity: 1; /* 通常時は不透明度100%で鮮明に表示 */
+    transition: transform 0.5s ease;
+}
+
+/* テキストセクションのスタイル（維持） */
+.artist-text-container h3,
+.artist-text-container p,
+.artist-text-container span {
+    color: #000000;
+    transition: color 0.5s;
+}
+
+/* ホバー時のテキスト色（維持） */
+.artist-card:hover h3,
+.artist-card:hover p,
+.artist-card:hover span {
+    color: #ffffff !important;
+}
+
+/* 6. ビジョン・コンセプトのテキスト（一言一句用） */
+#v-sub {
+    white-space: pre-wrap; /* 改行を反映 */
+    line-height: 2.2;
+    color: #000000;
+    font-weight: 500;
+}
+
+#c-body p {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* 7. モバイルメニュー */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background: white;
+    z-index: 200;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid #000000;
+}
+#mobile-menu.open { transform: translateX(0); }
+
+#menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+#menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* Visionのサブテキスト（右側）の行間と改行設定 */
+#v-sub, #c-body {
+    /* バッククォートの改行を維持 */
+    white-space: pre-wrap; 
+    
+    /* 日本語が変な場所で切れるのを防ぎ、
+       できるだけユーザーが意図した改行位置まで粘る */
+    word-break: keep-all; 
+    overflow-wrap: anywhere; 
+
+    /* 文字サイズが大きすぎると強制改行が起きるため、少しだけ調整 */
+    font-size: clamp(1rem, 0.95rem + 0.5vw, 1.1rem);
+    line-height: 2;
+    text-align: left; /* pre-wrapの場合、中央寄せより左寄せの方が制御しやすいです */
+}
+
+/* --- タイトルと本文の改行制御 --- */
+.responsive-title, #v-sub, #c-body {
+    white-space: normal; /* 勝手な改行・空白を無視 */
+    word-break: keep-all; /* 日本語の単語の途中での改行を防止 */
+    overflow-wrap: break-word; /* 長い単語は枠内で折る */
+}
+
+/* --- Vision (#v-main) のサイズ調整 --- */
+#v-main {
+    /* 10vwは大きすぎるため、固定値+可変値で安定させます */
+    font-size: clamp(1.8rem, 1rem + 6vw, 2.5rem) !important;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+/* --- Concept (#c-title) のサイズ調整 --- */
+#c-title {
+    font-size: clamp(1.4rem, 1rem + 4vw, 2.5rem) !important;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+/* --- 本文の可読性向上 --- */
+#v-sub, #c-body {
+    max-width: 800px; /* 1行が長くなりすぎないよう制限 */
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: center; /* センター寄せ */
+}
+
+/* 特定の単語を絶対に泣き別れさせないためのクラス */
+.keep-together {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* 白背景セクションの一体感を出す */
+section:not(#hero) {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+}
+
+/* style.css */
+
+#v-main {
+    /* 1. 絶対に改行させない */
+    white-space: nowrap !important;
+
+    /* 2. 画面幅いっぱいに文字を広げる魔法の数値 */
+    /* 25文字程度の場合、3.8vw〜4vwあたりが「1行に収まる」限界値です */
+    /* clamp(最小サイズ, 推奨サイズ, 最大サイズ) */
+    font-size: clamp(12px, 2.8vw, 60px) !important;
+
+    /* 3. はみ出し防止（万が一のための保険） */
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    
+    text-align: center;
+    line-height: 1.5;
+}
+
+#c-title {
+    /* 1. 絶対に改行させない */
+    white-space: nowrap !important;
+
+    /* 2. 画面幅に合わせて文字サイズを自動縮小 */
+    /* Visionより文字数が多いため、少し小さめの 3.2vw あたりから調整します */
+    font-size: clamp(12px, 2.9vw, 48px) !important;
+
+    /* 3. レイアウト調整 */
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+    overflow: hidden; /* はみ出し防止 */
+    
+    /* 余白の調整（必要に応じて） */
+    margin-left: auto;
+    margin-right: auto;
+}
