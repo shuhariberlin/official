@@ -27,6 +27,7 @@
         <div id="header-social" class="flex gap-4 text-lg"></div>
 
         <div class="flex items-center gap-4 text-[10px] font-bold">
+            <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="hidden md:inline-block bg-[#a50000] text-white px-4 py-2 uppercase tracking-widest hover:opacity-80 transition-opacity">Get Tickets</a>
             <button onclick="setLang('en')">EN</button> / 
             <button onclick="setLang('de')">DE</button> / 
             <button onclick="setLang('ja')">JP</button>
@@ -54,7 +55,7 @@
 
     <main>
         <section id="hero" class="min-h-screen flex flex-col justify-center px-6 relative text-white text-center">
-            <div class="max-w-[1400px] mx-auto flex flex-col items-center">
+            <div class="max-w-[1400px] mx-auto flex flex-col items-center pt-32">
                 <h1 class="text-6xl md:text-[7rem] font-black tracking-tighter leading-none mb-4">守破離 SHU HA RI 2026</h1>
                 
                 <div class="space-y-2 mb-12 text-sm md:text-base font-bold tracking-widest">
@@ -91,6 +92,12 @@
 
         <section id="artists" class="grid-line-b bg-white relative z-10">
             <div id="artists-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"></div>
+            
+            <div class="text-center py-12">
+                <a href="https://www.instagram.com/shuhari_berlin/" target="_blank" class="inline-block px-10 py-4 bg-black text-white font-bold uppercase tracking-widest hover:bg-[#D32F2F] transition-colors">
+                    More Info on Instagram
+                </a>
+            </div>
         </section>
 
         <section id="info" class="bg-white relative z-10 grid grid-cols-1 md:grid-cols-2">
@@ -98,10 +105,30 @@
                 <h2 class="text-[#3F51B5] font-bold tracking-[0.4em] mb-10 text-xs">SCHEDULE</h2>
                 <div id="schedule-list" class="space-y-2"></div>
             </div>
-            <div id="access" class="p-8 md:p-20 grid-line-b">
+            <div id="access" class="p-8 md:p-20 grid-line-b flex flex-col justify-between">
+            <div>
                 <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-10 text-xs">ACCESS</h2>
-                <div id="access-info" class="space-y-4"></div>
+                <div id="access-info" class="space-y-4 mb-8"></div>
             </div>
+            
+            <div class="bg-gray-100 p-6 text-center mb-8 border-l-4 border-[#a50000]">
+                <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="inline-block bg-[#a50000] text-white px-8 py-3 uppercase font-bold hover:bg-black transition-colors">
+                    Register Now
+                </a>
+            </div>
+
+            <div class="w-full h-64 border border-black">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Japanisch-Deutsches+Zentrum+Berlin&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
         </section>
 
         <section id="partners" class="bg-white relative z-10 border-t border-black">
@@ -114,6 +141,12 @@
             </div>
         </section>
     </main>
+
+    <div class="text-center py-12 bg-white relative z-10 border-t border-black">
+        <a href="archive/2025/index.html" class="inline-block border-b-2 border-black font-bold uppercase tracking-widest text-sm hover:text-[#D32F2F] hover:border-[#D32F2F] transition-colors">
+            View 2025 Archive
+        </a>
+    </div>
 
     <footer class="p-12 text-center bg-white border-t border-black relative z-10">
         <div id="footer-social" class="flex gap-6 mb-8 text-2xl"></div>

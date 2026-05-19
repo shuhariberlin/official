@@ -2,7 +2,7 @@ const translationsDe = {
     nav: { hero: "Home", vision: "Vision", concept: "Konzept", artists: "Künstler", schedule: "Ablauf", access: "Anfahrt" },
     hero: {
         date: "10:00–20:00 | 23.05.2026 / 10:00-17:00 | 24.05.2026",
-        entry: "Sie müssen vor dem Einlass eine Eintrittskarte kaufen",
+        entry: "Eintritt frei. Reservierung erforderlich.",
         venue: "JDZB Japanisch-Deutsches Zentrum,<br>Saargemünder Str. 2, 14195 Berlin",
         btn: "Jetzt registrieren",
         url: "https://rausgegangen.de/en/events/shu-ha-ri-2026-2/",

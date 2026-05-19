@@ -2,7 +2,7 @@ const translationsJa = {
     nav: { hero: "Home", vision: "Vision", concept: "Konzept", artists: "Artists", schedule: "Schedule", access: "Access" },
     hero: {
         date: "10:00–20:00 / 23.05.2026 | 10:00-17:00 / 24.05.2026",
-        entry: "ご入場の際にはチケットの購入が必要になります",
+        entry: "入場無料。事前予約が必要です。",
         venue: "日独センター ベルリン, Saargemünder Str. 2, 14195 Berlin, Germany",
         btn: "Register Now",
         url: "https://rausgegangen.de/en/events/shu-ha-ri-2026-2/",

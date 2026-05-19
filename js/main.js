@@ -2,7 +2,7 @@ function setLang(lang) {
     let t;
     if (lang === 'ja') t = translationsJa;
     else if (lang === 'de') t = translationsDe;
-    else t = translationsEn; // デフォルトは英語
+    else t = translationsEn; // デフォルト英語
     
     // 1. HERO セクションの更新
     document.getElementById('h-date').innerHTML = t.hero.date;
@@ -21,7 +21,7 @@ function setLang(lang) {
 
     // 見出しを同じクラス（responsive-title）の場所へ
     document.getElementById('v-main').innerHTML = t.vision.main;
-    document.getElementById('c-title').innerHTML = t.concept.title; // innerHTMLに変更
+    document.getElementById('c-title').innerHTML = t.concept.title; 
 
     // 本文
     document.getElementById('v-sub').innerHTML = t.vision.sub; 
@@ -115,8 +115,19 @@ function renderPartners(targetId, list) {
     if (!container) return;
 
     container.innerHTML = list.map(p => `
-        <a href="${p.url}" target="_blank" class="block grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100">
+        <div lass="block grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100">
             <img src="${p.img}" alt="${p.name}" class="w-full h-auto max-h-12 object-contain mx-auto">
-        </a>
+        </div>
     `).join('');
+}
+
+// Foodギャラリー（モーダル）用の関数
+function openFoodGallery() {
+    document.getElementById('food-modal').classList.remove('hidden');
+    document.getElementById('food-modal').classList.add('flex');
+}
+
+function closeFoodGallery() {
+    document.getElementById('food-modal').classList.add('hidden');
+    document.getElementById('food-modal').classList.remove('flex');
 }

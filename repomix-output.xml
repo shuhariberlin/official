@@ -75,6 +75,7 @@ images/124662.jpg
 images/logo_jdzb.png
 images/logo_tobitate.png
 images/main-a.jpg
+images/main-b.jpeg
 images/main-b.jpg
 images/SHUHARI.png
 images/small_exhivition.png
@@ -1998,30 +1999,19 @@ const translationsDe = {
     nav: { hero: "Home", vision: "Vision", concept: "Konzept", artists: "Künstler", schedule: "Ablauf", access: "Anfahrt" },
     hero: {
         date: "10:00–20:00 | 23.05.2026 / 10:00-17:00 | 24.05.2026",
-        entry: "Entry by reservation through Rausgegangen",
+        entry: "Eintritt frei. Reservierung erforderlich.",
         venue: "JDZB Japanisch-Deutsches Zentrum,<br>Saargemünder Str. 2, 14195 Berlin",
         btn: "Jetzt registrieren",
         url: "https://rausgegangen.de/en/events/shu-ha-ri-2026-2/",
-        img: "images/main-b.jpg"
+        img: "images/main-b.jpeg"
     },
     vision: {
         main: "Durch deine Interpretation wird Kultur lebendig.<br>Kultiviere die Zeit mit deinen Händen.",
-        sub: `SHU HA RI bedeutet nicht, Kultur als Wissen oder als etwas Fertiges zu bewahren.
-              Es ist ein Prozess des Aufnehmens, Hinterfragens und Neuinterpretierens—
-              und der Überführung in die eigene schöpferische Praxis.
-              Mit dieser Veranstaltung möchten wir einen Raum schaffen,
-              in dem Kultur nicht nur etwas ist, das man betrachtet oder lernt,
-              sondern etwas, das weitergegeben wird—
-              an neue Ausdrucksformen und neue Dialoge.`
+        sub: "SHU HA RI bedeutet nicht, Kultur als Wissen oder als etwas Fertiges zu bewahren.<br>Es ist ein Prozess des Aufnehmens, Hinterfragens und Neuinterpretierens—<br>und der Überführung in die eigene schöpferische Praxis.<br>Mit dieser Veranstaltung möchten wir einen Raum schaffen,<br>in dem Kultur nicht nur etwas ist, das man betrachtet oder lernt,<br>sondern etwas, das weitergegeben wird—<br>an neue Ausdrucksformen und neue Dialoge."
     },
     concept: {
-        title: "Japanische Kultur ist nichts, was in einer Vitrine vollendet wird.",
-        body: `
-            <p>Im Alltag der Menschen hat sie weitergelebt und dabei mit der Zeit ihre Gestalt verändert. Japanische Kultur, die sich in dir vollendet. Folge dem Weg von SHU HA RI.</p>
-            <p>Oft wird eine bestimmte Form japanischer Kultur als fertiges Bild präsentiert. Doch die Gedanken, die in ihren Details liegen, und die Prozesse, in denen sie über lange Zeit gewachsen sind, werden nur selten sichtbar gemacht.</p>
-            <p>Als wir uns innerhalb dieser Kultur befanden, waren ihre Gestalten schwer zu erfassen. Erst mit Abstand traten ihre Feinheit und ihre Zwischenräume hervor.</p>
-            <p>Diese Veranstaltung lädt dazu ein, den Prozess von SHU HA RI nachzuvollziehen: die Form zu erlernen, die Hülle zu durchbrechen und sie in einen eigenen Ausdruck zu verwandeln. Nicht nur das fertige Werk steht im Mittelpunkt, sondern auch der Prozess der Entstehung. So kann in jedem Besucher eine neue Interpretation entstehen.</p>
-        `
+        title: "Japanische Kultur, die sich in dir vollendet.<br>Folge dem Weg von SHU HA RI.",
+        body: "Japanische Kultur ist nichts, was in einer Vitrine vollendet wird.s<br>Im Alltag der Menschen hat sie weitergelebt<br>und dabei mit der Zeit ihre Gestalt verändert.<br>Oft wird eine bestimmte Form japanischer Kultur<br>als fertiges Bild präsentiert.<br>Doch die Gedanken, die in ihren Details liegen,<br>und die Prozesse, in denen sie über lange Zeit gewachsen sind,<br>werden nur selten sichtbar gemacht.<br>Als wir uns innerhalb dieser Kultur befanden,<br>waren ihre Gestalten schwer zu erfassen.<br>Erst mit Abstand traten ihre Feinheit und ihre Zwischenräume hervor.<br>Diese Veranstaltung lädt dazu ein,<br>den Prozess von SHU HA RI nachzuvollziehen:<br>die Form zu erlernen, die Hülle zu durchbrechen<br>und sie in einen eigenen Ausdruck zu verwandeln.<br>Nicht nur das fertige Werk steht im Mittelpunkt,<br>sondern auch der Prozess der Entstehung.<br>So kann in jedem Besucher eine neue Interpretation entstehen."
     },
     artists: {
         list: [
@@ -2041,13 +2031,9 @@ const translationsDe = {
         facebook: "https://www.facebook.com/share/1bGK4AHXQm/?mibextid=wwXIfr"
     },
     access: { venue: "JDZB Berlin", address: "Saargemünder Str. 2, 14195 Berlin", note: "Eintritt frei (Anmeldung erforderlich)" },
-    sponsors: [
+    support: [
         { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png", url: "https://..." },
         { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png", url: "https://..." }
-    ],
-    support: [
-        { name: "Organization A", img: "./images/support_a.png", url: "https://..." },
-        { name: "Organization B", img: "./images/support_b.png", url: "https://..." }
     ]
 };
 </file>
@@ -2057,35 +2043,19 @@ const translationsEn = {
     nav: { hero: "Home", vision: "Vision", concept: "Konzept", artists: "Artists", schedule: "Schedule", access: "Access" },
     hero: {
         date: "10:00–20:00 / 23.05.2026 | 10:00-17:00 / 24.05.2026",
-        entry: "Entry by reservation",
+        entry: "Free admission. Reservation required.",
         venue: "Japanese-German Center Berlin, Saargemünder Str. 2, 14195 Berlin, Germany",
         btn: "Register Now",
         url: "https://rausgegangen.de/en/events/shu-ha-ri-2026-2/",
-        img: "images/main-b.jpg"
+        img: "images/main-b.jpeg"
     },
     vision: {
         main: "Your interpretation moves culture.<br>With your own hands, cultivate the times.",
-        sub: `SHUHARI is a process, not about fixing culture into knowledge or a finished form, 
-              but to embrace it, challenge it, reinterpret it, and connect it to one's own creation.
-              
-              Through this event, we aim to create a space where culture is not simply something to be seen or 
-              learned, but is passed on to inspire new expressions and discourse.
-`
+        sub: "SHUHARI is a process, not about fixing culture into knowledge or a finished form, <br>but to embrace it, challenge it, reinterpret it, and connect it to one's own creation.<br>Through this event, we aim to create a space where culture is not simply something to be seen or <br>learned, but is passed on to inspire new expressions and discourse."
     },
     concept: {
-        title: `Japanese culture is not something that becomes complete inside a showcase.
-It has lived on through people's everyday lives, changing its form over time.`,
-        body: `
-           Japanese culture finds its completion within you. 
-Walk the path of SHU HA RI.
-
-We have long questioned how certain aspects of Japanese culture are often presented as already complete, fixed images—while the thinking in their details, and the processes built over time, remain insufficiently shared.
-
-A vision of Japan that was once difficult to perceive from within.
-The detail and the space that appear with distance.  
-
-This event offers an opportunity to re-experience the process of SHUHARI—to learn the form, to break it, and to reforge it as one’s own expression. Rather than focusing on completed works, it invites engagement with the process itself, with the hope that new interpretations will emerge within each visitor.
-        `
+        title: "Japanese culture completed within you.<br>Follow the path of SHU HA RI.",
+        body: "Japanese culture is not completed within a showcase.<br>It has lived on through people's everyday lives, changing its form over time.<br>Japanese culture finds its completion within you.<br>Walk the path of SHU HA RI.<br>We have long questioned how certain aspects of Japanese culture are often presented as already complete, fixed images—while the thinking in their details, and the processes built over time, remain insufficiently shared.<br>A vision of Japan that was once difficult to perceive from within.<br>The detail and the space that appear with distance.  <br>This event offers an opportunity to re-experience the process of SHUHARI—to learn the form, to break it, and to reforge it as one’s own expression. Rather than focusing on completed works, it invites engagement with the process itself, with the hope that new interpretations will emerge within each visitor."
     },
     artists: {
         list: [
@@ -2108,13 +2078,9 @@ This event offers an opportunity to re-experience the process of SHUHARI—to le
         venue: "JDZB Berlin",
         address: "Saargemünder Str. 2, 14195 Berlin, Germany",
     },
-    sponsors: [
-        { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png", url: "https://..." },
-        { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png", url: "https://..." }
-    ],
     support: [
-        { name: "Organization A", img: "./images/support_a.png", url: "https://..." },
-        { name: "Organization B", img: "./images/support_b.png", url: "https://..." }
+        { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png" },
+        { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png" }
     ]
 };
 </file>
@@ -2124,40 +2090,26 @@ const translationsJa = {
     nav: { hero: "Home", vision: "Vision", concept: "Konzept", artists: "Artists", schedule: "Schedule", access: "Access" },
     hero: {
         date: "10:00–20:00 / 23.05.2026 | 10:00-17:00 / 24.05.2026",
-        entry: "Rausgegangenを通してのチケットが必要です",
+        entry: "入場無料。事前予約が必要です。",
         venue: "日独センター ベルリン, Saargemünder Str. 2, 14195 Berlin, Germany",
         btn: "Register Now",
         url: "https://rausgegangen.de/en/events/shu-ha-ri-2026-2/",
-        img: "images/main-b.jpg" // 背景画像
+        img: "images/main-b.jpeg" // 背景画像
     },
     vision: {
-        main: "あなたの解釈が文化を動かす。<br>その手で時代を耕そう。",
-        sub: `文化の過程をひらき、解釈が生まれ続ける循環をつくる。
-
-守破離は、文化を知識や完成されたものとして留めるのではなく、
-受け取り、揺さぶり、再解釈し、
-自らの創造へとつなげていくためのプロセスです。
-
-私たちはこのイベントを通して、
-文化が「見るもの」や「学ぶもの」で終わるのではなく、
-次の表現や対話へと手渡されていく、
-ひとつの〈場〉をつくりたいと考えています。`
+        main: "文化の過程をひらき、解釈が生まれ続ける循環をつくる。",
+        sub: "守破離は、文化を知識や完成されたものとして留めるのではなく、<br>受け取り、揺さぶり、再解釈し、<br>自らの創造へとつなげていくためのプロセスです。<br>私たちはこのイベントを通して、<br>文化が「見るもの」や「学ぶもの」で終わるのではなく、<br>次の表現や対話へと手渡されていく、<br>ひとつの〈場〉をつくりたいと考えています。"
     },
     concept: {
-        title: "日本文化は、ショーケースの中で完成するものではありません。",
-        body: `
-            <p>人々の暮らしの中で、時間とともに姿を変えながら、生き続けてきました。<br>あなたの中で完成する日本文化。「守破離」を辿ろう。</p>
-            <p>私たちは、特定の日本文化が完成されたイメージとして語られ、そこに至るまでの細部に宿る思考や、積み重ねられてきた過程、これらが十分に共有されていない現状に課題を感じてきました。</p>
-            <p>内側にいたときには見えにくかった日本のかたち。<br>距離を置いたことで浮かび上がった、細やかさや余白。</p>
-            <p>本イベントは、型を学び、殻を破り、自らの表現へと昇華させる 「守破離」というプロセスを、追体験する場です。<br>作品の完成形ではなく、その過程に触れることで、来場者一人ひとりの中に新しい解釈が立ち上がることを目指します。</p>
-        `
+        title: "あなたの中で完成する日本文化。「守破離」を辿ろう。",
+        body: "日本文化は、<br>ショーケースの中で完成するものではありません。<br>人々の暮らしの中で、時間とともに姿を変えながら、<br>生き続けてきました。<br>私たちは、特定の日本文化が完成されたイメージとして語られ、<br>そこに至るまでの細部に宿る思考や、積み重ねられてきた過程、<br>これらが十分に共有されていない現状に課題を感じてきました。<br>内側にいたときには見えにくかった日本のかたち。<br>距離を置いたことで浮かび上がった、細やかさや余白。<br>本イベントは、型を学び、殻を破り、自らの表現へと昇華させる<br>「守破離」というプロセスを、追体験する場です。<br>作品の完成形ではなく、その過程に触れることで、<br>来場者一人ひとりの中に新しい解釈が立ち上がることを目指します。"
     },
     artists: {
         list: [
-            { id: "01", cat: "Performance", name: "Coming Soon", desc: "", img: "./images/small_performance.png", color: "shu" },
-            { id: "02", cat: "Exhibition", name: "Coming Soon", desc: "", img: "./images/small_exhivition.png", color: "ha" },
-            { id: "03", cat: "Workshop", name: "Coming Soon", desc: "", img: "./images/small_workshop.png", color: "ri" },
-            { id: "04", cat: "Tickets", name: "Admission Fee", desc: "", img: "./images/small_ticket.png", color: "ha" }
+            { id: "01", cat: "Performance", name: "Coming Soon", desc: "Live Performance & Dance", img: "./images/small_performance.png", color: "shu" },
+            { id: "02", cat: "Exhibition", name: "Coming Soon", desc: "Creative Exhibition with 40+ Artists", img: "./images/small_exhivition.png", color: "ha" },
+            { id: "03", cat: "Workshop", name: "Coming Soon", desc: "Interactive Cultural Workshops", img: "./images/small_workshop.png", color: "ri" },
+            { id: "04", cat: "Food & Drink", name: "Coming Soon", desc: "Authentic Japanese Food Experience", img: "./images/small_japanesefood&drink.png", color: "shu" }
         ]
     },
     social: {
@@ -2166,13 +2118,9 @@ const translationsJa = {
     },
     schedule: { events: [{ time: "upcoming", name: "upcoming" }] },
     access: { venue: "日独センター　ベルリン", address: "Saargemünder Str. 2, 14195 Berlin", note: "Admission Free" },
-    sponsors: [
+    support: [
         { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png", url: "https://..." },
         { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png", url: "https://..." }
-    ],
-    support: [
-        { name: "Organization A", img: "./images/support_a.png", url: "https://..." },
-        { name: "Organization B", img: "./images/support_b.png", url: "https://..." }
     ]
 };
 </file>
@@ -2182,17 +2130,17 @@ function setLang(lang) {
     let t;
     if (lang === 'ja') t = translationsJa;
     else if (lang === 'de') t = translationsDe;
-    else t = translationsEn; // デフォルトは英語
+    else t = translationsEn; // デフォルト英語
     
     // 1. HERO セクションの更新
-    document.getElementById('h-date').innerText = t.hero.date;
-    document.getElementById('h-entry').innerText = t.hero.entry;
+    document.getElementById('h-date').innerHTML = t.hero.date;
+    document.getElementById('h-entry').innerHTML = t.hero.entry;
     document.getElementById('h-venue').innerHTML = t.hero.venue;
     
     // リンクの更新
     const registerBtn = document.getElementById('h-btn');
     if (registerBtn) {
-        registerBtn.innerText = t.hero.btn;
+        registerBtn.innerHTML = t.hero.btn;
         registerBtn.href = t.hero.url; 
         console.log("Link updated to:", t.hero.url);
     }
@@ -2201,10 +2149,10 @@ function setLang(lang) {
 
     // 見出しを同じクラス（responsive-title）の場所へ
     document.getElementById('v-main').innerHTML = t.vision.main;
-    document.getElementById('c-title').innerHTML = t.concept.title; // innerHTMLに変更
+    document.getElementById('c-title').innerHTML = t.concept.title; 
 
     // 本文
-    document.getElementById('v-sub').innerText = t.vision.sub;
+    document.getElementById('v-sub').innerHTML = t.vision.sub; 
     document.getElementById('c-body').innerHTML = t.concept.body;
 
     // 4. 動的リストの描画
@@ -2295,10 +2243,21 @@ function renderPartners(targetId, list) {
     if (!container) return;
 
     container.innerHTML = list.map(p => `
-        <a href="${p.url}" target="_blank" class="block grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100">
+        <div lass="block grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100">
             <img src="${p.img}" alt="${p.name}" class="w-full h-auto max-h-12 object-contain mx-auto">
-        </a>
+        </div>
     `).join('');
+}
+
+// Foodギャラリー（モーダル）用の関数
+function openFoodGallery() {
+    document.getElementById('food-modal').classList.remove('hidden');
+    document.getElementById('food-modal').classList.add('flex');
+}
+
+function closeFoodGallery() {
+    document.getElementById('food-modal').classList.add('hidden');
+    document.getElementById('food-modal').classList.remove('flex');
 }
 </file>
 
@@ -2355,9 +2314,9 @@ body {
 }
 
 /* Heroの文字を背景画像に対してくっきりさせる */
-#hero h1, #hero p, #hero div {
+/*#hero h1, #hero p, #hero div {
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-}
+}*/
 
 /* Vision以降のセクション：背景色を白で固定して断層を防ぐ */
 section:not(#hero) {
@@ -2476,83 +2435,102 @@ section:not(#hero) {
 #menu-overlay.open { opacity: 1; pointer-events: auto; }
 
 /* Visionのサブテキスト（右側）の行間と改行設定 */
-#v-sub {
-    white-space: pre-wrap; /* JavaScriptの改行をそのまま画面に反映 */
-    line-height: 2.2;      /* 行間を広げて読みやすく */
-    color: #000000;        /* グレーではなく純粋な黒 */
-}
-
-/* Conceptの本文も同様に黒に統一 */
-#c-body p {
-    color: #000000;
-    font-weight: 500;
-}
-
-/* --- 全共通のベース設定 --- */
-.responsive-title {
-    white-space: pre-wrap;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    font-weight: 900;
-    line-height: 1.1;
-    font-style: italic; /* スクショに合わせて斜体 */
-}
-
-/* --- 1. ビジョン（#v-main）のサイズ --- */
-/* 短いフレーズなので、ガツンと大きく！ */
-#v-main {
-    font-size: clamp(2rem, 10vw, 4.5rem) !important;
-}
-
-/* --- 2. コンセプト（#c-title）のサイズ --- */
-/* 長文なので、はみ出さないように一回り小さく！ */
-#c-title {
-    font-size: clamp(1.5rem, 7.5vw, 3.2rem) !important;
-}
-
-/* --- 3. 言語別の微調整（必要なら） --- */
-
-/* ドイツ語は単語が長くてはみ出しやすいので、さらに少し絞る */
-html[lang="de"] #c-title {
-    font-size: clamp(1.2rem, 6.5vw, 2.8rem) !important;
-}
-
-/* 日本語は密度が高いので、バランスを見て調整 */
-html[lang="ja"] #v-main {
-    font-size: clamp(2.2rem, 9vw, 4.2rem) !important;
-}
-
-/* スマホでは縦積みになり、文字も適切に小さくなる */
-@media (max-width: 767px) {
-    .responsive-title {
-        font-size: 2.5rem; /* スマホでの基準サイズ */
-        margin-right: 0;
-    }
-}
-
-/* 本文の可読性を上げるための余白 */
 #v-sub, #c-body {
-    /* 幅を広げる（800pxから1000pxへ） */
-    max-width: 1000px; 
-    margin: 0 auto;
-    
-    /* 文字を少し小さくして、1行に入る量を増やす */
-    font-size: 1.05rem; 
-    line-height: 2;
-    
-    /* 説明文も中央寄せにしたい場合はこれ（左寄せがいいなら削除してね） */
-    text-align: center; 
-    
-    /* 改行指示を反映させる */
+    /* バッククォートの改行を維持 */
     white-space: pre-wrap; 
+    
+    /* 日本語が変な場所で切れるのを防ぎ、
+       できるだけユーザーが意図した改行位置まで粘る */
+    word-break: keep-all; 
+    overflow-wrap: anywhere; 
+
+    /* 文字サイズが大きすぎると強制改行が起きるため、少しだけ調整 */
+    font-size: clamp(1rem, 0.95rem + 0.5vw, 1.1rem);
+    line-height: 2;
+    text-align: left; /* pre-wrapの場合、中央寄せより左寄せの方が制御しやすいです */
+}
+
+/* --- タイトルと本文の改行制御 --- */
+.responsive-title, #v-sub, #c-body {
+    white-space: normal; /* 勝手な改行・空白を無視 */
+    word-break: keep-all; /* 日本語の単語の途中での改行を防止 */
+    overflow-wrap: break-word; /* 長い単語は枠内で折る */
+}
+
+/* --- Vision (#v-main) のサイズ調整 --- */
+#v-main {
+    /* 10vwは大きすぎるため、固定値+可変値で安定させます */
+    font-size: clamp(1.8rem, 1rem + 6vw, 2.5rem) !important;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+/* --- Concept (#c-title) のサイズ調整 --- */
+#c-title {
+    font-size: clamp(1.4rem, 1rem + 4vw, 2.5rem) !important;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+/* --- 本文の可読性向上 --- */
+#v-sub, #c-body {
+    max-width: 800px; /* 1行が長くなりすぎないよう制限 */
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: center; /* センター寄せ */
+}
+
+/* 特定の単語を絶対に泣き別れさせないためのクラス */
+.keep-together {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 /* 白背景セクションの一体感を出す */
 section:not(#hero) {
     background-color: #ffffff;
     border-bottom: 1px solid #000000;
+}
+
+/* style.css */
+
+#v-main {
+    /* 1. 絶対に改行させない */
+    white-space: nowrap !important;
+
+    /* 2. 画面幅いっぱいに文字を広げる魔法の数値 */
+    /* 25文字程度の場合、3.8vw〜4vwあたりが「1行に収まる」限界値です */
+    /* clamp(最小サイズ, 推奨サイズ, 最大サイズ) */
+    font-size: clamp(12px, 2.8vw, 60px) !important;
+
+    /* 3. はみ出し防止（万が一のための保険） */
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    
+    text-align: center;
+    line-height: 1.5;
+}
+
+#c-title {
+    /* 1. 絶対に改行させない */
+    white-space: nowrap !important;
+
+    /* 2. 画面幅に合わせて文字サイズを自動縮小 */
+    /* Visionより文字数が多いため、少し小さめの 3.2vw あたりから調整します */
+    font-size: clamp(12px, 2.9vw, 48px) !important;
+
+    /* 3. レイアウト調整 */
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+    overflow: hidden; /* はみ出し防止 */
+    
+    /* 余白の調整（必要に応じて） */
+    margin-left: auto;
+    margin-right: auto;
 }
 </file>
 
@@ -2573,7 +2551,7 @@ section:not(#hero) {
 <body>
 
     <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-black flex justify-between items-center px-6 py-4 z-[100]">
-        <a href="#hero" class="font-black text-2xl tracking-tighter italic">SHUHARI</a>
+        <a href="#hero" class="font-black text-xl tracking-tighter italic">守破離 SHU HA RI 2026</a>
         <nav class="hidden lg:flex gap-8 text-[10px] font-bold uppercase tracking-widest">
             <a href="#hero" class="nav-label" data-key="nav.hero">Home</a>
             <a href="#vision" class="nav-label" data-key="nav.vision">Vision</a>
@@ -2586,6 +2564,7 @@ section:not(#hero) {
         <div id="header-social" class="flex gap-4 text-lg"></div>
 
         <div class="flex items-center gap-4 text-[10px] font-bold">
+            <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="hidden md:inline-block bg-[#a50000] text-white px-4 py-2 uppercase tracking-widest hover:opacity-80 transition-opacity">Get Tickets</a>
             <button onclick="setLang('en')">EN</button> / 
             <button onclick="setLang('de')">DE</button> / 
             <button onclick="setLang('ja')">JP</button>
@@ -2613,8 +2592,8 @@ section:not(#hero) {
 
     <main>
         <section id="hero" class="min-h-screen flex flex-col justify-center px-6 relative text-white text-center">
-            <div class="max-w-[1400px] mx-auto flex flex-col items-center">
-                <h1 class="text-6xl md:text-[9rem] font-black tracking-tighter italic leading-none mb-4">SHU HA RI</h1>
+            <div class="max-w-[1400px] mx-auto flex flex-col items-center pt-32">
+                <h1 class="text-6xl md:text-[7rem] font-black tracking-tighter leading-none mb-4">守破離 SHU HA RI 2026</h1>
                 
                 <div class="space-y-2 mb-12 text-sm md:text-base font-bold tracking-widest">
                     <p id="h-date"></p>
@@ -2650,6 +2629,12 @@ section:not(#hero) {
 
         <section id="artists" class="grid-line-b bg-white relative z-10">
             <div id="artists-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"></div>
+            
+            <div class="text-center py-12">
+                <a href="https://www.instagram.com/shuhari_berlin/" target="_blank" class="inline-block px-10 py-4 bg-black text-white font-bold uppercase tracking-widest hover:bg-[#D32F2F] transition-colors">
+                    More Info on Instagram
+                </a>
+            </div>
         </section>
 
         <section id="info" class="bg-white relative z-10 grid grid-cols-1 md:grid-cols-2">
@@ -2657,19 +2642,34 @@ section:not(#hero) {
                 <h2 class="text-[#3F51B5] font-bold tracking-[0.4em] mb-10 text-xs">SCHEDULE</h2>
                 <div id="schedule-list" class="space-y-2"></div>
             </div>
-            <div id="access" class="p-8 md:p-20 grid-line-b">
+            <div id="access" class="p-8 md:p-20 grid-line-b flex flex-col justify-between">
+            <div>
                 <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-10 text-xs">ACCESS</h2>
-                <div id="access-info" class="space-y-4"></div>
+                <div id="access-info" class="space-y-4 mb-8"></div>
             </div>
+            
+            <div class="bg-gray-100 p-6 text-center mb-8 border-l-4 border-[#a50000]">
+                <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="inline-block bg-[#a50000] text-white px-8 py-3 uppercase font-bold hover:bg-black transition-colors">
+                    Register Now
+                </a>
+            </div>
+
+            <div class="w-full h-64 border border-black">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Japanisch-Deutsches+Zentrum+Berlin&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
         </section>
 
         <section id="partners" class="bg-white relative z-10 border-t border-black">
             <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="p-8 md:p-20 md:border-r border-black border-b md:border-b-0">
-                    <h2 class="text-[#3F51B5] font-bold tracking-[0.4em] mb-12 text-xs uppercase">Sponsors</h2>
-                    <div id="sponsor-list" class="grid grid-cols-2 gap-8 items-center">
-                        </div>
-                </div>
                 <div class="p-8 md:p-20">
                     <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-12 text-xs uppercase">Support</h2>
                     <div id="support-list" class="grid grid-cols-2 gap-8 items-center">
@@ -2679,9 +2679,15 @@ section:not(#hero) {
         </section>
     </main>
 
+    <div class="text-center py-12 bg-white relative z-10 border-t border-black">
+        <a href="archive/2025/index.html" class="inline-block border-b-2 border-black font-bold uppercase tracking-widest text-sm hover:text-[#D32F2F] hover:border-[#D32F2F] transition-colors">
+            View 2025 Archive
+        </a>
+    </div>
+
     <footer class="p-12 text-center bg-white border-t border-black relative z-10">
         <div id="footer-social" class="flex gap-6 mb-8 text-2xl"></div>
-        <p class="text-[10px] font-bold tracking-widest opacity-30 uppercase">© SHUHARI Berlin 2026</p>
+        <p class="text-[10px] font-bold tracking-widest opacity-30 uppercase">© 守破離 SHU HA RI 2026</p>
     </footer>
 
     <script src="./js/locales/en.js"></script>
