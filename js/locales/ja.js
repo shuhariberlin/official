@@ -31,7 +31,7 @@ const translationsJa = {
     schedule: { events: [{ time: "upcoming", name: "upcoming" }] },
     access: { venue: "日独センター　ベルリン", address: "Saargemünder Str. 2, 14195 Berlin", note: "Admission Free" },
     support: [
-        { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png", url: "https://..." },
-        { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png", url: "https://..." }
+        { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png"},
+        { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png"}
     ]
 };

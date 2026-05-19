@@ -35,7 +35,7 @@ const translationsDe = {
     },
     access: { venue: "JDZB Berlin", address: "Saargemünder Str. 2, 14195 Berlin", note: "Eintritt frei (Anmeldung erforderlich)" },
     support: [
-        { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png", url: "https://..." },
-        { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png", url: "https://..." }
+        { name: "Tobitate! Study Abroad Japan", img: "images/logo_tobitate.png"},
+        { name: "Japanisch-Deutsches Zentrum Berlin", img: "images/logo_jdzb.png"}
     ]
 };
