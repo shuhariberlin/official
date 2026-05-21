@@ -50,8 +50,9 @@ function setLang(lang) {
         </a>
     `;
 
-    document.getElementById('header-social').innerHTML = socialHtml;
-    document.getElementById('footer-social').innerHTML = socialHtml;
+    if (document.getElementById('header-social')) document.getElementById('header-social').innerHTML = socialHtml;
+    if (document.getElementById('mobile-social')) document.getElementById('mobile-social').innerHTML = socialHtml;
+    if (document.getElementById('footer-social')) document.getElementById('footer-social').innerHTML = socialHtml;
     
     document.documentElement.lang = lang;
     localStorage.setItem('shuhari-lang', lang);
@@ -66,25 +67,37 @@ function renderArtists(list) {
     if (!grid) return;
 
     grid.innerHTML = list.map(a => {
-        // ホバー時の背景色の設定（維持）
-        let hoverClass = 'hover:bg-black'; // デフォルト
-        if (a.color === 'shu') hoverClass = 'hover:bg-[#3F51B5]'; // 守 (青)
-        if (a.color === 'ha')  hoverClass = 'hover:bg-[#D32F2F]'; // 破 (赤)
-        if (a.color === 'ri')  hoverClass = 'hover:bg-[#4CAF50]'; // 離 (緑)
+        // ホバー時の背景色の設定
+        let hoverClass = 'hover:bg-black'; 
+        if (a.color === 'shu') hoverClass = 'hover:bg-[#3F51B5]'; 
+        if (a.color === 'ha')  hoverClass = 'hover:bg-[#D32F2F]'; 
+        if (a.color === 'ri')  hoverClass = 'hover:bg-[#4CAF50]'; 
+
+        // クリックアクションとタグの出し分け
+        let clickAction = '';
+        let tag = 'div';
+        let href = '';
+
+        if (a.id === "02") {
+            // Exhibition (02): インスタグラムに直接飛ぶ
+            tag = 'a';
+            href = 'href="https://www.instagram.com/shuhari_berlin/" target="_blank"';
+        } else {
+            // Performance (01), Workshop (03), Food (04): 共通スライドギャラリーを開く
+            clickAction = `onclick="openGallery('${a.id}', '${a.name}', '${a.desc}')"`;
+        }
 
         return `
-            <div class="artist-card flex flex-col grid-line-r grid-line-b min-h-[450px] transition-all duration-500 ${hoverClass} hover:text-white group relative cursor-pointer bg-white overflow-hidden">
-                
+            <${tag} ${href} ${clickAction} class="artist-card flex flex-col grid-line-r grid-line-b min-h-[450px] transition-all duration-500 ${hoverClass} hover:text-white group relative cursor-pointer bg-white overflow-hidden block">
                 <div class="artist-img-container flex-grow flex items-center justify-center p-8 bg-gray-50 group-hover:bg-transparent transition-colors duration-500">
                     <img src="${a.img}" alt="${a.name}" class="artist-main-img object-contain max-h-[200px] transition-transform duration-500 group-hover:scale-105">
                 </div>
 
                 <div class="artist-text-container p-8 relative z-10">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-black mb-2 block group-hover:text-white">${a.id} / ${a.cat}</span>
                     <h3 class="text-3xl font-black leading-none text-black group-hover:text-white">${a.name}</h3>
                     <p class="text-xs mt-3 font-bold text-black opacity-70 group-hover:text-white group-hover:opacity-100">${a.desc}</p>
                 </div>
-            </div>
+            </${tag}>
         `;
     }).join('');
 }
@@ -121,13 +134,121 @@ function renderPartners(targetId, list) {
     `).join('');
 }
 
-// Foodギャラリー（モーダル）用の関数
-function openFoodGallery() {
-    document.getElementById('food-modal').classList.remove('hidden');
-    document.getElementById('food-modal').classList.add('flex');
+const galleryData = {
+    "01": [ // Performance用の画像
+        "images/stage-day1.png", // ※仮の画像
+        "images/stage-day2.png"
+    ],
+    "03": [ // Workshop用の画像
+        "images/work-shop-day1.png", // ※仮の画像
+        "images/work-shop-day2.png"
+    ],
+    "04": [ // Food & Drink用の画像
+        "images/Frame_91_1.png",// ※仮の画像
+        "images/Frame_92_1.png",
+        "images/Frame_93_1.png",
+        "images/Frame_94_1.png",
+        "images/Frame_95_1.png",
+        "images/Frame_96.png",
+        "images/Frame_97.png",
+        "images/Frame_98.png",
+        "images/Frame_99.png",
+        "images/Frame_100.png",
+        "images/Frame_107.png",
+        "images/Frame_108.png",
+        "images/Frame_109.png",
+        "images/Frame_110.png",
+        "images/Frame_111.png",
+        "images/Frame_112.png",
+        "images/Frame_113.png",
+        "images/Frame_114.png",
+        "images/Frame_115.png",
+        "images/Frame_116.png",
+        "images/Frame_117.png",
+        "images/Frame_118.png",
+        "images/Frame_120.png",
+        "images/Frame_121.png",
+        "images/Frame_122.png",
+        "images/Frame_123.png",
+        "images/Frame_124.png",
+        "images/Frame_125.png",
+        "images/Frame_126.png",
+        "images/Frame_137.png",
+        "images/Frame_138.png",
+        "images/Frame_139.png",
+        "images/Frame_140.png",
+        "images/Frame_141.png",
+        "images/Frame_142.png",
+    ],
+    "stage_day1": ["images/stage-day1.png"],
+    "stage_day2": ["images/stage-day2.png"],
+    "workshop_day1": ["images/work-shop-day1.png"],
+    "workshop_day2": ["images/work-shop-day2.png"],
+    "floor_plan": ["images/floor_plan.jpg"]
+};
+
+let currentGalleryImages = [];
+let currentGalleryIndex = 0;
+
+function openGallery(id, title, desc) {
+    // 画像データが存在しない場合は開かない
+    if (!galleryData[id] || galleryData[id].length === 0) return;
+    
+    currentGalleryImages = galleryData[id];
+    currentGalleryIndex = 0; // 常に1枚目から表示
+    
+    // タイトルと説明文をセット
+    document.getElementById('gallery-title').innerText = title;
+    document.getElementById('gallery-desc').innerText = desc || '';
+    
+    updateGalleryImage();
+    
+    // モーダルを表示
+    document.getElementById('gallery-modal').classList.remove('hidden');
+    document.getElementById('gallery-modal').classList.add('flex');
 }
 
-function closeFoodGallery() {
-    document.getElementById('food-modal').classList.add('hidden');
-    document.getElementById('food-modal').classList.remove('flex');
+function closeGallery() {
+    document.getElementById('gallery-modal').classList.add('hidden');
+    document.getElementById('gallery-modal').classList.remove('flex');
+}
+
+function nextGalleryImage() {
+    currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
+    updateGalleryImage();
+}
+
+function prevGalleryImage() {
+    currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+    updateGalleryImage();
+}
+
+function updateGalleryImage() {
+    const img = document.getElementById('gallery-main-img');
+    const counter = document.getElementById('gallery-counter');
+    const prevBtn = document.getElementById('gallery-prev');
+    const nextBtn = document.getElementById('gallery-next');
+    
+    // 画像切り替えアニメーション
+    img.style.opacity = 0; 
+    setTimeout(() => {
+        img.src = currentGalleryImages[currentGalleryIndex];
+        img.style.opacity = 1; 
+    }, 150);
+
+    // カウンターの更新
+    if (counter) {
+        counter.innerText = `${currentGalleryIndex + 1} / ${currentGalleryImages.length}`;
+    }
+
+    // ★画像が1枚しかないときは、左右の矢印ボタンとカウンターを隠す
+    if (currentGalleryImages.length <= 1) {
+        if (prevBtn) prevBtn.classList.add('hidden');
+        if (nextBtn) nextBtn.classList.add('hidden');
+        if (counter) counter.classList.add('opacity-0'); // カウンターも薄く消す
+    } else {
+        if (prevBtn) prevBtn.classList.remove('hidden');
+        if (nextBtn) nextBtn.classList.remove('hidden');
+        if (counter) counter.classList.remove('opacity-0');
+    }
 }

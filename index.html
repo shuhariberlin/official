@@ -24,7 +24,7 @@
             <a href="#access" class="nav-label" data-key="nav.access">Access</a>
         </nav>
 
-        <div id="header-social" class="flex gap-4 text-lg"></div>
+        <div id="header-social" class="hidden lg:flex gap-4 text-lg"></div>
 
         <div class="flex items-center gap-4 text-[10px] font-bold">
             <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="hidden md:inline-block bg-[#a50000] text-white px-4 py-2 uppercase tracking-widest hover:opacity-80 transition-opacity">Get Tickets</a>
@@ -50,7 +50,7 @@
             <a href="#artists" onclick="toggleMenu()">Artists</a>
             <a href="#schedule" onclick="toggleMenu()">Schedule</a>
             <a href="#access" onclick="toggleMenu()">Access</a>
-        <div id="header-social" class="flex gap-4 text-lg"></div>
+        <div id="mobile-social" class="flex gap-4 text-lg mt-4"></div>
     </div>
 
     <main>
@@ -72,7 +72,7 @@
 
         <section id="vision" class="grid-line-b bg-white relative z-10">
             <div class="max-w-[1000px] mx-auto py-20 px-8">
-                <p class="text-[#3F51B5] font-bold tracking-[0.4em] mb-10 text-xs uppercase text-center">Vision</p>
+                <p class="text-[#3F51B5] font-bold tracking-[0.4em] mb-10 text-2xl uppercase text-center">Vision</p>
                 
                 <h2 id="v-main" class="responsive-title text-black font-black italic tracking-tighter leading-[1.1] text-center mb-16"></h2>
                 
@@ -82,7 +82,7 @@
 
         <section id="concept" class="grid-line-b bg-white relative z-10">
             <div class="max-w-[1000px] mx-auto py-20 px-8">
-                <p class="text-[#D32F2F] font-bold tracking-[0.4em] mb-10 text-xs uppercase text-center">Concept</p>
+                <p class="text-[#D32F2F] font-bold tracking-[0.4em] mb-10 text-2xl uppercase text-center">Concept</p>
                 
                 <h2 id="c-title" class="responsive-title text-black font-black italic tracking-tighter leading-[1.1] text-center mb-16"></h2>
                 
@@ -92,49 +92,103 @@
 
         <section id="artists" class="grid-line-b bg-white relative z-10">
             <div id="artists-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"></div>
-            
-            <div class="text-center py-12">
-                <a href="https://www.instagram.com/shuhari_berlin/" target="_blank" class="inline-block px-10 py-4 bg-black text-white font-bold uppercase tracking-widest hover:bg-[#D32F2F] transition-colors">
-                    More Info on Instagram
-                </a>
+            </section>
+
+        <section id="schedule-section" class="bg-white relative z-10 grid-line-b">
+            <div class="p-8 md:p-20 max-w-[1400px] mx-auto">
+                <h2 class="text-[#3F51B5] font-bold tracking-[0.4em] mb-12 text-2xl text-center md:text-left"><!--SCHEDULE & -->FLOOR PLAN</h2>
+                
+                <div class="space-y-16">
+                    <!--<div>
+                        <h3 class="text-sm font-black uppercase tracking-widest border-b-2 border-[#3F51B5] inline-block mb-6 pr-4">Performance Stage</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-xs font-bold mb-2 text-center opacity-70">Day 1 (23rd)</p>
+                                <img src="images/stage-day1.png" alt="Stage Schedule Day 1" class="w-full h-auto border border-black shadow-sm cursor-pointer hover:opacity-80 transition-opacity" onclick="openGallery('stage_day1', 'Performance Stage - Day 1 (23rd)')">
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold mb-2 text-center opacity-70">Day 2 (24th)</p>
+                                <img src="images/stage-day2.png" alt="Stage Schedule Day 2" class="w-full h-auto border border-black shadow-sm cursor-pointer hover:opacity-80 transition-opacity" onclick="openGallery('stage_day2', 'Performance Stage - Day 2 (24th)')">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-widest border-b-2 border-[#4CAF50] inline-block mb-6 pr-4">Workshop</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-xs font-bold mb-2 text-center opacity-70">Day 1 (23rd)</p>
+                                <img src="images/work-shop-day1.png" alt="Workshop Schedule Day 1" class="w-full h-auto border border-black shadow-sm cursor-pointer hover:opacity-80 transition-opacity" onclick="openGallery('workshop_day1', 'Workshop Schedule - Day 1 (23rd)')">
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold mb-2 text-center opacity-70">Day 2 (24th)</p>
+                                <img src="images/work-shop-day2.png" alt="Workshop Schedule Day 2" class="w-full h-auto border border-black shadow-sm cursor-pointer hover:opacity-80 transition-opacity" onclick="openGallery('workshop_day2', 'Workshop Schedule - Day 2 (24th)')">
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div>
+                        <!--<h3 class="text-sm font-black uppercase tracking-widest border-b-2 border-black inline-block mb-6 pr-4">Floor Plan</h3>-->
+                        <img src="images/floor_plan.jpg" alt="Exhibition Floor Plan" class="w-full h-auto border border-black shadow-md cursor-pointer hover:opacity-80 transition-opacity" onclick="openGallery('floor_plan', 'Exhibition Floor Plan')">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="info" class="bg-white relative z-10 grid grid-cols-1 md:grid-cols-2">
-            <div id="schedule" class="p-8 md:p-20 md:grid-line-r grid-line-b">
-                <h2 class="text-[#3F51B5] font-bold tracking-[0.4em] mb-10 text-xs">SCHEDULE</h2>
-                <div id="schedule-list" class="space-y-2"></div>
+
+        <section id="access-section" class="bg-white relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                
+                <div id="access" class="p-8 md:p-20 md:grid-line-r grid-line-b flex flex-col justify-center">
+                    <div class="max-w-md w-full mx-auto md:mx-0">
+                        <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-10 text-2xl">ACCESS</h2>
+                        
+                        <div id="access-info" class="space-y-4 mb-10"></div>
+                            <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="inline-block bg-[#a50000] text-white px-8 py-3 uppercase font-bold hover:bg-black transition-colors w-full text-center">
+                                Register Now
+                            </a>
+                    </div>
+                </div>
+
+                <div class="w-full h-[400px] md:h-auto grid-line-b flex">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Japanisch-Deutsches+Zentrum+Berlin&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 400px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
             </div>
-            <div id="access" class="p-8 md:p-20 grid-line-b flex flex-col justify-between">
-            <div>
-                <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-10 text-xs">ACCESS</h2>
-                <div id="access-info" class="space-y-4 mb-8"></div>
+        </section>
+
+        <div id="gallery-modal" class="hidden fixed inset-0 z-[300] bg-black/95 items-center justify-center flex-col">
+            
+            <button onclick="closeGallery()" class="absolute top-6 right-6 md:top-10 md:right-10 text-5xl text-white font-light hover:text-[#D32F2F] transition-colors z-50 cursor-pointer">×</button>
+            
+            <h3 id="gallery-title" class="absolute top-8 left-6 md:top-10 md:left-10 text-lg md:text-xl text-white font-black tracking-widest z-40 drop-shadow-md"></h3>
+            <p id="gallery-desc" class="hidden"></p> 
+            
+            <div class="relative w-full h-full flex items-center justify-center p-2 md:p-16">
+                
+                <button id="gallery-prev" onclick="prevGalleryImage()" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-5xl md:text-7xl z-50 transition-colors p-4 cursor-pointer">❮</button>
+                
+                <img id="gallery-main-img" src="" class="max-w-full max-h-full object-contain transition-opacity duration-300 drop-shadow-2xl">
+                
+                <button id="gallery-next" onclick="nextGalleryImage()" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-5xl md:text-7xl z-50 transition-colors p-4 cursor-pointer">❯</button>
             </div>
             
-            <div class="bg-gray-100 p-6 text-center mb-8 border-l-4 border-[#a50000]">
-                <a href="https://rausgegangen.de/en/events/shu-ha-ri-2026-2/" target="_blank" class="inline-block bg-[#a50000] text-white px-8 py-3 uppercase font-bold hover:bg-black transition-colors">
-                    Register Now
-                </a>
-            </div>
-
-            <div class="w-full h-64 border border-black">
-                <iframe 
-                    src="https://maps.google.com/maps?q=Japanisch-Deutsches+Zentrum+Berlin&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <div id="gallery-counter" class="absolute bottom-8 text-white font-bold tracking-widest text-sm opacity-50 z-40"></div>
+            
         </div>
-        </section>
 
         <section id="partners" class="bg-white relative z-10 border-t border-black">
             <div class="grid grid-cols-1 md:grid-cols-2">
                 <div class="p-8 md:p-20">
-                    <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-12 text-xs uppercase">Support</h2>
+                    <h2 class="text-[#4CAF50] font-bold tracking-[0.4em] mb-12 text-2xl uppercase">Support</h2>
                     <div id="support-list" class="grid grid-cols-2 gap-8 items-center">
                         </div>
                 </div>

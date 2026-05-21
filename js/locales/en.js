@@ -18,10 +18,10 @@ const translationsEn = {
     },
     artists: {
         list: [
-            { id: "01", cat: "Performance", name: "Coming Soon", desc: "Live Performance & Dance", img: "./images/small_performance.png", color: "shu" },
-            { id: "02", cat: "Exhibition", name: "Coming Soon", desc: "Creative Exhibition with 40+ Artists", img: "./images/small_exhivition.png", color: "ha" },
-            { id: "03", cat: "Workshop", name: "Coming Soon", desc: "Interactive Cultural Workshops", img: "./images/small_workshop.png", color: "ri" },
-            { id: "04", cat: "Food & Drink", name: "Coming Soon", desc: "Authentic Japanese Food Experience", img: "./images/small_japanesefood&drink.png", color: "shu" }
+            { id: "01", name: "Performance", desc: "Live Performance & Dance", img: "./images/small_performance.png", color: "shu" },
+            { id: "02", name: "Exhibition", desc: "Creative Exhibition with 40+ Artists", img: "./images/small_exhivition.png", color: "ha" },
+            { id: "03", name: "Workshop", desc: "Interactive Cultural Workshops", img: "./images/small_workshop.png", color: "ri" },
+            { id: "04", name: "Food & Drink", desc: "Authentic Japanese Food Experience", img: "./images/small_japanesefood&drink.png", color: "shu" }
         ]
     },
     schedule: {
